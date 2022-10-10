@@ -12,7 +12,7 @@
    Elegimos estas paginas webs debido a que nos gustaron sus diseños minimalistas, su temática (colores), su estructura, la interacción con el usuario, también que su interfaz es intuitiva.
 
 ## Integrantes:
-    * Luis Viloria:
+    * Luis Viloria: Hola, soy Venozolano, tengo 33 años, vivo en Argentina desde hace 7 años, uno de mis proyectos de vida desde hace muchos años era aprender a programar, asi que estoy muy agradecido de estar involucrado en este curso actualmente, me gusta el baloncesto, soy amante de la tecnologia y mi meta actual es trabajar como programador a tiempo completo.
 
     * Martín Albertengo:
 
