@@ -1,3 +1,15 @@
-## Iframe del diseño
+# Diseño
 
-<iframe width="768" height="432" src="https://miro.com/app/live-embed/uXjVPR-Mjcs=/?moveToViewport=-9838,-3230,31999,20872&embedId=953419810779" frameborder="0" scrolling="no" allowfullscreen></iframe>
+## Link del diseño
+
+https://miro.com/welcomeonboard/d3Y3Y1lBc0RjUFV5ZVpJcXBFUHExbTJkM1JIUFJSTzBNeHhPREJPOGVxblNlcDVXVDFSdlJtZlZDdWl5dlpMdHwzNDU4NzY0NTM0ODgyNDkzNTU1fDI=?share_link_id=939368253815
+
+## Fuentes
+
+Monserrat
+Lato
+
+## Colores
+
+#393939 - Primario
+#0093d7 - Secundario
