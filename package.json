@@ -1,0 +1,24 @@
+{
+  "name": "grupo_4_3mosqueteros",
+  "version": "1.0.0",
+  "description": "* Nuestro sitio webs se enfocara en la venta de impresoras 3D e insumos. Esta dirigida a emprendedores o entusiastas que estén ubicados en Argentina.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElHumildev/grupo_4_3Mosqueteros.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ElHumildev/grupo_4_3Mosqueteros/issues"
+  },
+  "homepage": "https://github.com/ElHumildev/grupo_4_3Mosqueteros#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20"
+  }
+}

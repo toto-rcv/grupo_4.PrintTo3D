@@ -6,7 +6,7 @@ https://miro.com/welcomeonboard/d3Y3Y1lBc0RjUFV5ZVpJcXBFUHExbTJkM1JIUFJSTzBNeHhP
 
 ## Fuentes
 
-Monserrat
+Montserrat
 Lato
 
 ## Colores
