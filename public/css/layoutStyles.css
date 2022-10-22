@@ -6,6 +6,7 @@ body {
   margin: 0;
   width: 100vw;
   background-color: #000000;
+  color: #ffffff;
 }
 header {
   z-index: 999999;

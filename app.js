@@ -7,3 +7,9 @@ app.listen(3000)
 app.get('/', (req, res) => {
   res.sendFile(path.resolve('./views/home.html'))
 })
+app.get('/category', (req, res) => {
+  res.sendFile(path.resolve('./views/category.html'))
+})
+app.get('/busqueda', (req, res) => {
+  res.sendFile(path.resolve('./views/busqueda.html'))
+})
