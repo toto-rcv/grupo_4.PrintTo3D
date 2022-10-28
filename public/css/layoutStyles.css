@@ -1,13 +1,15 @@
 * {
-  font-family: 'Montserrat', sans-serif;
-  overflow-y: overlay;
+    font-family: 'Montserrat', sans-serif;
+    overflow-y: overlay;
 }
+
 body {
   margin: 0;
   width: 100vw;
   background-color: #000000;
   color: #ffffff;
 }
+
 header {
   z-index: 999999;
   width: 100vw;
@@ -21,6 +23,7 @@ header {
   position: fixed;
   font-size: 12px;
 }
+
 #nav-section {
   display: flex;
   flex-direction: row;
@@ -32,14 +35,16 @@ header nav {
   flex-direction: row;
   gap: 15px;
 }
+
 header nav button {
-  background-color: #000000;
-  color: #ffffff;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 12px;
-  padding-right: 12px;
+    background-color: #000000;
+    color: #ffffff;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
 }
+
 #user-section {
   display: none;
   flex-direction: row;
@@ -47,9 +52,11 @@ header nav button {
   align-items: center;
   margin-right: 15px;
 }
+
 #user-section button {
-  color: #ffffff;
+    color: #ffffff;
 }
+
 #user-section button i {
   color: #ffffff;
   padding: 10px;
