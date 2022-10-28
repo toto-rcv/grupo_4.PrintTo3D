@@ -15,6 +15,12 @@ app.get("/login", (req, res) => {
 app.get("/recuperacion", (req, res) => {
   res.sendFile(path.resolve(__dirname,"./views/r-contrasena.html"))
 })
+app.get('/product', (req, res) => {
+  res.sendFile(path.resolve('./views/product.html'))
+})
+app.get('/kart', (req, res) => {
+  res.sendFile(path.resolve('./views/kart.html'))
+})
 app.get('/category', (req, res) => {
   res.sendFile(path.resolve('./views/category.html'))
 })
