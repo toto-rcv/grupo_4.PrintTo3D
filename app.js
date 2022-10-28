@@ -21,3 +21,6 @@ app.get('/category', (req, res) => {
 app.get('/busqueda', (req, res) => {
   res.sendFile(path.resolve('./views/busqueda.html'))
 })
+app.get('/register', (req, res) => {
+  res.sendFile(path.resolve('./views/register.html'))
+})

@@ -1,5 +1,12 @@
-main {
-    background: black;
+*{
+    box-sizing: border-box;
+}
+main{
+    height: 100vh;
+    width: 100vw ;
+    display: flex;
+    justify-content: center;   
+    align-items: center;
 }
 
 h1 {
@@ -12,11 +19,13 @@ h1 {
 input {
     display: block;
     width: 100%;
-    padding: 6px 5px;
+    padding: 10px 5px;
     border: none;
     border-bottom: 1px solid black;
     margin: 30px auto;
     background: white;
+    color: black;
+    border-radius: 10px;
 }
 
 form p {
@@ -26,6 +35,7 @@ form p {
 .contenedor-preguntas-login {
     display: flex;
     justify-content: space-evenly;
+    margin-right: 45px
 }
 
 .contenedor-preguntas-login a {
@@ -34,18 +44,7 @@ form p {
     font-weight: bold;
     margin: 5px 0 10px 0;
 }
-.contenedor-idiomas-ayuda-privacidad-condiciones{
-    font-size: 14px;
-    display: flex;
-     justify-content: space-between;
-     font-weight: bold;
-     margin: 20px 0px 2px 0px;
 
-
-}
-.contenedor-idiomas-ayuda-privacidad-condiciones a{
-    margin: 0px auto;
-}
 
 #submit {
     width: auto;
@@ -63,12 +62,12 @@ form p {
 }
 
 .form-login {
-    background: white;
     width: 100%;
     padding: 30px 10px;
-    margin: 100px auto;   
+    margin: 100px auto;
+    border: 4px #0093d7 solid;
+    border-radius: 20px;
 }
-
 
 
 
