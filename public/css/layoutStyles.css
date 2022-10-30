@@ -2,11 +2,8 @@
     font-family: 'Montserrat', sans-serif;
     overflow-y: overlay;
 }
-main {
-  padding-top: 93.81px;
-}
+
 body {
-  scrollbar-gutter: revert;
   margin: 0;
   width: 100vw;
   background-color: #000000;
