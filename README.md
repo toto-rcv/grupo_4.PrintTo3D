@@ -21,3 +21,8 @@
       Con respecto a mis hobbies, disfruto hacer deporte tanto en equipo como en solitario, y entre los deportes que más me gustan están el fútbol y andar en bicicleta.
 
     * Tomás Cejas: Hola, mi nombre es Tomás Cejas, mi edad es de 20 años y vivo en Buenos Aires. Estudio medicina aunque ahora le di un stop momentaneamente, para estudiar programacion que tambien es una de las cosas que quise estudiar para poder mezclar y crear cosas extraodinarias junto con la medicina. Mis hobbis son jugar un deporte llamado jugger y crear cosas como ropa y cosas en 3D (modelo,dibujo,talla) y hacerla realidad.
+
+
+
+  Tablero de tabajo :
+  https://trello.com/b/qnlVzuoy/printto3d
