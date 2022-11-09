@@ -1,16 +1,8 @@
-const { userInfo } = require('os');
-const path = require('path');
-
 const mainController = {
-    busqueda: (req, res) =>{
-        res.render('busqueda')
+    index: (req, res) =>{
+        res.render('home')
     },
-    category: (req, res) =>{
-        res.render('category')
-    }
+
 }
 
 module.exports = mainController;
-//user: registro login recuperacion de contraseña
-//product: categoria busqueda
-//main: 

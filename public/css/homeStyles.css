@@ -8,11 +8,17 @@
   left: 0%;
   z-index: 0;
 }
+main {
+  margin-right: 18px;
+}
 h1 {
   font-size: 50px;
 }
 h3 {
-  font-size: 40px;
+  font-size: 45px;
+}
+h4 {
+  font-size: 45px;
 }
 main button {
   border: 2px solid #0093d7;
@@ -51,7 +57,7 @@ main button {
   flex-direction: column;
   gap: 20px;
 }
-#first-section .content .search input {
+input, textarea {
   background-color: #ffffff;
   color: #000000;
   padding: 4px;
@@ -74,9 +80,13 @@ main button {
   padding-bottom: 50px;
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 60px;
 }
 #categorie-section .categorie-container {
+  position: relative;
+  padding: 30px;
+  border-radius: 10px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -98,6 +108,83 @@ main button {
   width: 80%;
   border-radius: 15px;
 }
+#categorie-section .categorie-container .overlay-categorie {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  top: 0%;
+  left: 0%;
+  transition-duration: 0.5s;
+  transition-property: all;
+  transition-timing-function: ease-out;
+  opacity: .6;
+}
+#categorie-section .categorie-container:hover .overlay-categorie {
+  opacity: .9;
+}
+#categorie-section .categorie-container .overlay-categorie {
+  background: linear-gradient(0deg, rgba(0,0,0,1) 18%, rgb(1, 65, 93) 100%, rgba(0,0,0,0.7035189075630253) 100%);
+}
+#mail-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+#mail-section .mail-container {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+#mail-section .mail-container .info-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+  font-size: 16px;
+}
+#mail-section .mail-container form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+#mail-section .mail-container form label {
+  font-size: 14px;
+}
+#mail-section .mail-container form .data-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+#mail-section .mail-container form .field-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  justify-content: flex-start;
+}
+#mail-section .mail-container form .field-container input, textarea {
+  font-size: 14px;
+}
+textarea {
+  height: 120px;
+}
+#mail-section .mail-container form button#mail-submit {
+  width: 100%;
+  border-radius: 10px;
+  background-color: #0093d7;
+  padding: 12px;
+  text-align: center;
+}
 @media (min-width: 480px) {
   h1 {
     font-size: 65px;
@@ -105,7 +192,7 @@ main button {
   #first-section .content .search p {
     font-size: 20px;
   }
-  #first-section .content .search input {
+  input {
     padding: 6px;
   }
   main button {
@@ -140,7 +227,7 @@ main button {
   #first-section .content .search p {
     font-size: 24px;
   }
-  #first-section .content .search input {
+  input {
     padding: 8px;
   }
   main button {
@@ -170,7 +257,7 @@ main button {
   #first-section .content .search p {
     font-size: 26px;
   }
-  #first-section .content .search input {
+  input {
     padding: 8px;
   }
   /* Categoria */
@@ -179,6 +266,20 @@ main button {
   }
   #categorie-section .categorie-container article {
     width: 80%;
+  }
+  h4 {
+    font-size: 60px;
+  }
+  #mail-section .mail-container {
+    flex-direction: row;
+    gap: 60px;
+    width: 80%;
+  }
+  #mail-section .mail-container .info-container p {
+    font-size: 18px;
+  }
+  #mail-section .mail-container form button#mail-submit {
+    width: 60%;
   }
 }
 @media (min-width: 1024px) {
@@ -197,8 +298,10 @@ main button {
   #first-section .content .search p {
     font-size: 23px;
   }
-  #first-section .content .search input {
+  input {
     padding: 8px;
+  }
+  #first-section .content .search input {
     width: 250px;
   }
   #first-section .content .search .button-container {
@@ -229,28 +332,9 @@ main button {
     gap: 150px;
   }
   #categorie-section .categorie-container {
-    position: relative;
     flex-direction: row;
     justify-content: space-around;
     gap: 0px;
-    padding: 30px;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  #categorie-section .categorie-container .overlay-categorie {
-    position: absolute;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    top: 0%;
-    left: 0%;
-    transition-duration: 0.5s;
-    transition-property: all;
-    transition-timing-function: ease-out;
-    opacity: .6;
-  }
-  #categorie-section .categorie-container:hover .overlay-categorie {
-    opacity: .9;
   }
   #categorie-section .categorie-container:nth-child(odd) .overlay-categorie {
     background: linear-gradient(270deg, rgba(0,0,0,1) 18%, rgb(1, 65, 93) 100%, rgba(0,0,0,0.7035189075630253) 100%);
@@ -273,6 +357,9 @@ main button {
   #categorie-section .categorie-container img {
     border-radius: 15px;
     width: 40%;
+  }
+  #mail-section .mail-container .info-container p {
+    font-size: 20px;
   }
 }
 @media (min-width: 1279px) {

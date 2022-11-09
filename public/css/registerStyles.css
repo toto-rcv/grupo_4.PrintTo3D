@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+}
+
+main {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+
+}
+a{
+    display: block;
+    text-align: center;
+    color: #0093d7;
+}
+
+input {
+    display: block;
+    width: 100%;
+    padding: 10px 5px;
+    border: none;
+    border-bottom: 1px solid black;
+    margin: 30px auto;
+    background: white;
+    color: black;
+    border-radius: 10px;
+}
+.button-center{
+    text-align: center;
+    background-color: #0093d7;
+    width: 25%;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: white;
+}
+
+
+
+.contenedor-form {
+    width: 100%;
+    padding: 30px 25px;
+    margin: 100px auto;
+    border: 4px #0093d7 solid;
+    border-radius: 20px;
+    
+}
+
+
+
+
+
+/*Tablet*/
+@media(min-width: 364px) {
+    .contenedor-Nombre-contraseña {
+        display: flex;
+        flex-direction: row;
+        column-gap: 10px;
+    }
+    .contenedor-form { 
+        width: 95%;
+    }
+ }
+
+
+ 
+ @media(min-width:769px){
+    .contenedor-form { 
+        width: 60%;
+    }
+    h1{
+        font-size: 36px;
+    }
+   
+
+ }

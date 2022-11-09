@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/layoutStyles.css">
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/homeStyles.css">
+    <link rel="stylesheet" href="css/ProductStyles.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,44 +47,42 @@
       </section>
     </header>
     <main>
-      <section id="first-section">
-        <div class="overlay"></div>
-        <div class="content">
-          <h1>PrintTo3D</h1>
-          <div class="search">
-            <p>Busca tu producto</p>
-            <input type="text" placeholder="Impresora...">
-            <div class="button-container">
-              <button type="button">
-                Buscar
-              </button>
+      <section id="product-detail">
+        <img src="/img/imgg.jpg" alt="product-image">
+        <div class="details-info">
+          <h1>Nombre del producto</h1>
+          <div class="price-container">
+            <p>Precio:</p>
+            <span>$$$$</span>
+          </div>
+          <p class="mini-description">Suspendisse potenti. Nunc ut vulputate nibh. Integer aliquet finibus as Phasellus rutrum nisl nec</p>
+        </div>
+      </section>
+      <section id="product-actions">
+        <div class="action-container">
+          <div class="colors-container">
+            <p>Colores:</p>
+            <div class="color rojo">
             </div>
+            <div class="color azul">
+            </div>
+            <div class="color verde">
+            </div>
+            <div class="color amarillo">
+            </div>
+          </div>
+          <div class="action-buttons">
+            <div class="cantidad-container">
+              <label for="cantidad">Cantidad:</p>
+              <input type="number" id="cantidad" name="cantidad">
+            </div>
+            <button type="button">Agregar al carrito</button>
           </div>
         </div>
       </section>
-      <section id="categorie-section">
-        <div class="categorie-container">
-          <div class="overlay-categorie"></div>
-          <article>
-            <h3>Categoría 1</h3>
-            <p>Suspendisse potenti. Nunc ut vulputate nibh. Integer aliquet finibus as Phasellus rutrum nisl nec Suspendisse potenti. Nunc ut vulputate nibh. Integer aliquet finibus as Phasellus rutrum nisl nec Suspendisse pot</p>
-            <button type="button">
-              Ver más
-            </button>
-          </article>
-          <img src="/img/imgg.jpg" alt="" width="500px">
-        </div>
-        <div class="categorie-container">
-          <div class="overlay-categorie"></div>
-          <article>
-            <h3>Categoría 2</h3>
-            <p>Suspendisse potenti. Nunc ut vulputate nibh. Integer aliquet finibus as Phasellus rutrum nisl nec Suspendisse potenti. Nunc ut vulputate nibh. Integer aliquet finibus as Phasellus rutrum nisl nec Suspendisse pot</p>
-            <button type="button">
-              Ver más
-            </button>
-          </article>
-          <img src="/img/imgg.jpg" alt="" width="500px">
-        </div>
+      <section id="additional-product-info">
+        <h4>Descripción:</h4>
+        <p>Suspendisse potenti. Nunc ut vulputate nibh. Integer aliquet finibus as Phasellus rutrum nisl nec Suspendisse potenti. Nunc ut vulputate nibh. Integer aliquet finibus as Phasellus rutrum nisl nec Suspendisse potenti. Nunc ut vulputate nibh. Integer aliquet finibus as Phasellus rutrum nisl nec Suspendisse potenti. Nunc ut vulputate nibh. Integer aliquet finibus as Phasellus rutrum nisl nec</p>
       </section>
     </main>
     <footer>
