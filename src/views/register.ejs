@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        PrintTo3D
+    </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/registerStyles.css">
+    <link rel="stylesheet" href="css/layoutStyles.css">
+    <link rel="stylesheet" href="css/reset.css">
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <%- include('./partials/header') %>
+    <main>
+        <form class="contenedor-form" action="" method="get">
+            <h1>Crea tu cuenta en PrintTo3D</h1>
+            <div class="contenedor-Nombre-contraseña">
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+                <input type="text" name="apellido" id="apellido" placeholder="Apellido">
+            </div>
+            <input type="email" name="email" id="email" placeholder="Correo electronico">
+            <div class=contenedor-Nombre-contraseña>
+                <input type="password" name="password" id="password" placeholder="Contraseña">
+                <input type="password" name="password" id="password" placeholder="Confirmar contraseña">
+                <input class="input-malo" type="button" name="button" id="button" value="Mostrar contraseña">
+            </div>
+            <div>
+                <input class="button-center" type="button" name="button" id="button" value="Crear">
+            </div>
+            <a href="/login">¿Ya tenes una cuenta?</a>
+        </form>
+    </main>
+    <%- include('./partials/footer') %>
+</body>
+
+</html>
