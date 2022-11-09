@@ -22,6 +22,8 @@
 
     * Tomás Cejas: Hola, mi nombre es Tomás Cejas, mi edad es de 20 años y vivo en Buenos Aires. Estudio medicina aunque ahora le di un stop momentaneamente, para estudiar programacion que tambien es una de las cosas que quise estudiar para poder mezclar y crear cosas extraodinarias junto con la medicina. Mis hobbis son jugar un deporte llamado jugger y crear cosas como ropa y cosas en 3D (modelo,dibujo,talla) y hacerla realidad.
 
+    * Ricardo Martinez: vivo en Neuquen capital y tengo 36 años. Entré al curso para comenzar mi camino en desarrollo Web. Me motiva mantenerme actualizado con nuevas tecnologías, y que sumen a mi crecimiento laboral y personal. Actualmente trabajo en Sistema de Control, programando plataformas SCADAs.
+    Hobbies: Running, mountain bike, snowboard y música.
 
 
   Tablero de tabajo :
