@@ -6,5 +6,6 @@ router.get('/busqueda', productController.busqueda);
 router.get('/category', productController.category);
 router.get('/kart', productController.kart);
 router.get('/productAdd', productController.productAdd);
+router.get('/productDetails', productController.productDetails);
 
 module.exports = router;
