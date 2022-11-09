@@ -14,38 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <header>
-      <section id="nav-section">
-        <img src="/img/logo2.png" alt="LogoPrintTo3D" width="150px">
-        <nav>
-          <button type="button">
-            Button 1
-          </button>
-          <button type="button">
-            Button 2
-          </button>
-          <button type="button">
-            Button 3
-          </button>
-        </nav>
-      </section>
-      <section id="nav-mobile">
-        <button type="button">
-          <i class="fa-sharp fa-solid fa-bars"></i>
-        </button>
-      </section>
-      <section id="user-section">
-        <button type="button">
-          Crear cuenta
-        </button>
-        <button type="button">
-          Iniciar sesión
-        </button>
-        <button type="button">
-          <i class="fa-sharp fa-solid fa-circle-user"></i>
-        </button>
-      </section>
-    </header>
+    <%- include('./partials/header') %>  
     <main>
       <section id="product-list">
         <div class="product-header">
@@ -157,55 +126,6 @@
         <button type="button" id="finaliza-button">Finalizar compra</button>
       </section>
     </main>
-    <footer>
-      <div id="footer-img-container">
-        <img src="/img/logo2.png" alt="LogoPrintTo3D" width="150px">
-      </div>
-      <section class="footer-list" id="footer-categories">
-        <h4>Categorías</h4>
-        <ul>
-          <li>
-            <a href="/">Categorie 1</a>
-          </li>
-          <li>
-            <a href="/">Categorie 2</a>
-          </li>
-        </ul>
-      </section>
-      <section class="footer-list" id="footer-contact">
-        <h4>Contacto</h4>
-        <ul>
-          <li>
-            <i class="fa-sharp fa-solid fa-phone"></i>
-            <a href="tel:3412344">3412344</a>
-          </li>
-          <li>
-            <i class="fa-sharp fa-solid fa-envelope"></i>
-            <a href="mailto:example@a.com">example@a.com</a>
-          </li>
-          <li>
-            <i class="fa-sharp fa-solid fa-location-dot"></i>
-            <a href="/">exmplae 123</a>
-          </li>
-        </ul>
-      </section>
-      <section class="footer-list" id="footer-social">
-        <h4>Redes sociales</h4>
-        <ul>
-          <li>
-            <i class="fa-sharp fa-solid fa-at"></i>
-            <a href="/">instagram</a>
-          </li>
-          <li>
-            <i class="fa-sharp fa-solid fa-at"></i>
-            <a href="/">facebook</a>
-          </li>
-          <li>
-            <i class="fa-sharp fa-solid fa-at"></i>
-            <a href="/">linkedin</a>
-          </li>
-        </ul>
-      </section>
-    </footer>
+    <%- include('./partials/footer') %>  
   </body>
 </html>

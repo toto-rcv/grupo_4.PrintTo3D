@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        PrintTo3D
+    </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/productEdit.css">
+    <link rel="stylesheet" href="css/layoutStyles.css">
+    <link rel="stylesheet" href="css/reset.css">
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <%- include('./partials/header') %>  
+    <main>
+        <form class="contenedor-form" action="" method="get">
+            <h1>Mododificación de Producto</h1>
+            <div class="contenedor-form__Agrupa">
+                <div class="contenedor-form__imagenproducto">
+                    <img src="/img/imgg.jpg" alt="product-image">
+                    <input class="button-center button-center__editImagen" type="button" name="cambiarImagen" id="cambiarImagen" value="Cambiar Imagen">
+                </div>
+                
+                <div class="contenedor-form__detalleProcucto">
+                    <input type="text" name="nombreProducto" id="nombreProducto" placeholder="Nombre del Producto">
+                    <input type="text" name="descripcionCorta" id="descripcionCorta" placeholder="Descripción Corta">
+                    <textarea name="descripcionDetallada" id="descripcionDetallada" placeholder="Descripción Detallada"></textarea>
+                    <input type="number" name="precioProducto" id="precioProducto" placeholder="Precio del Producto">             
+                    <div class="contenedor-form__detalleProcucto--botones">
+                        <input class="button-center" type="button" name="descartar" id="button" value="Descartar">
+                        <input class="button-center" type="button" name="guardar" id="button" value="Guardar">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <%- include('./partials/footer') %>  
+</body>
+
+</html>
