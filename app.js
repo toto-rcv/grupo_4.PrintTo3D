@@ -2,7 +2,9 @@ const express = require('express')
 const app = express()
 const path = require('path')
 app.use(express.static('public'))
-app.listen(3000)
+app.listen(3000, ()=>{
+  console.log('Servidor funcionando');
+  });
 
 app.set('view engine', 'ejs');
 
@@ -12,9 +14,7 @@ const mainRoute = require('./src/routes/mainRoute');
 const productRoute = require('./src/routes/productRoute');
 const userRoute = require('./src/routes/userRoute');
 
-
 app.use("/", [mainRoute,productRoute,userRoute]);
-
 
 /*
 app.get('/', (req, res) => {
