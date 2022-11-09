@@ -4,6 +4,19 @@ const path = require('path')
 app.use(express.static('public'))
 app.listen(3000)
 
+app.set('view engine', 'ejs');
+
+app.set('views', './src/views');
+
+const mainRoute = require('./src/routes/mainRoute');
+const productRoute = require('./src/routes/productRoute');
+const userRoute = require('./src/routes/userRoute');
+
+
+app.use("/", [mainRoute,productRoute,userRoute]);
+
+
+/*
 app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname,"./views/home.html"))
 })
@@ -29,4 +42,4 @@ app.get('/busqueda', (req, res) => {
 })
 app.get('/register', (req, res) => {
   res.sendFile(path.resolve('./views/register.html'))
-})
+})*/
