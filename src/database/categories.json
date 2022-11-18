@@ -1,0 +1,20 @@
+[
+    {
+        "id":1,
+        "nombreCategoria":"Impresoras de Filamento",
+        "descripcion":"",
+        "imagen": ""
+    },
+    {
+        "id":2,
+        "nombreCategoria":"Impresoras de Resina",
+        "descripcion":"",
+        "imagen":""
+    },
+    {
+        "id":3,
+        "nombreCategoria":"Insumos",
+        "descripcion":"",
+        "imagen":""
+    }
+]
