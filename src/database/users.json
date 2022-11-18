@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "nombre": "Megen",
+        "apellido": "Stobie",
+        "email": "mstobie0@weather.com",
+        "contraseña": "wMT4sTr",
+        "categoria": 1,
+        "imagen": "http://dummyimage.com/133x100.png/dddddd/000000"
+    },
+    {
+        "id": 2,
+        "nombre": "Davie",
+        "apellido": "Bedow",
+        "email": "dbedow1@foxnews.com",
+        "contraseña": "9IVbTwpAf5et",
+        "categoria": 2,
+        "imagen": "http://dummyimage.com/158x100.png/cc0000/ffffff"
+    },
+    {
+        "id": 3,
+        "nombre": "Delano",
+        "apellido": "Dun",
+        "email": "ddun2@prnewswire.com",
+        "contraseña": "S828QXg",
+        "categoria": 3,
+        "imagen": "http://dummyimage.com/100x100.png/ff4444/ffffff"
+    },
+    {
+        "id": 4,
+        "nombre": "Jocelyne",
+        "apellido": "Humphrys",
+        "email": "jhumphrys3@123-reg.co.uk",
+        "contraseña": "xNHRbjpCtW",
+        "categoria": 4,
+        "imagen": "http://dummyimage.com/217x100.png/dddddd/000000"
+    },
+    {
+        "id": 5,
+        "nombre": "Philippine",
+        "apellido": "Colly",
+        "email": "pcolly4@abc.net.au",
+        "contraseña": "aqkeaqcG6",
+        "categoria": 5,
+        "imagen": "http://dummyimage.com/119x100.png/5fa2dd/ffffff"
+    },
+    {
+        "id": 6,
+        "nombre": "Ryon",
+        "apellido": "Ashington",
+        "email": "rashington5@google.com.hk",
+        "contraseña": "vuxWYdInRnzm",
+        "categoria": 6,
+        "imagen": "http://dummyimage.com/102x100.png/ff4444/ffffff"
+    }
+]
