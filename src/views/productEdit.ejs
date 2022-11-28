@@ -30,15 +30,16 @@
                 </div>
                 -->
                 <div class="contenedor-form__detalleProcucto">
-                    <input class="contenedor-form__input" type="text" name="nombreProducto" id="nombreProducto" placeholder="Nombre del Producto">
-                    <select class="contenedor-form__input" name="idCategory" id="category">  
+                    <input class="contenedor-form__input" type="text" name="nombreProducto" id="nombreProducto" placeholder="Nombre del Producto" value="<%= productToEdit.nombreProducto ? productToEdit.nombreProducto : "" %>">
+                    <!-- Agregar Categoria de forma Automatica  -->
+                    <select class="contenedor-form__input" name="idCategory" id="category" >  
                         <option value="1">Impresoras de Filamento</option>
                         <option value="2">Impresoras de Resina</option>
                         <option value="3">Insumos</option>
                     </select>
-                    <textarea class="contenedor-form__input" name="descripcion" id="descripcion" placeholder="Descripción"></textarea>
-                    <textarea class="contenedor-form__input" name="descripcionAmpliada" id="descripcionAmpliada" placeholder="Descripción ampliada"></textarea>
-                    <input class="contenedor-form__input" type="number" name="precioProducto" id="precioProducto" placeholder="Precio del Producto">   
+                    <textarea class="contenedor-form__input" name="descripcion" id="descripcion" placeholder="Descripción" ><%= productToEdit.descripcion ? productToEdit.descripcion : "" %></textarea>
+                    <textarea class="contenedor-form__input" name="descripcionAmpliada" id="descripcionAmpliada" placeholder="Descripción ampliada"><%= productToEdit.descripcionAmpliada ? productToEdit.descripcionAmpliada : "" %></textarea>
+                    <input class="contenedor-form__input" type="number" name="precioProducto" id="precioProducto" placeholder="Precio del Producto" value="<%= productToEdit.price ? productToEdit.price : "" %>">   
                     <input class="contenedor-form__input" type="file" id="image" name="image" >          
                     <!-- Agregar colores de forma Automatica  -->
                    
