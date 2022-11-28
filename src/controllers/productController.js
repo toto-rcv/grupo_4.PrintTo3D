@@ -10,7 +10,9 @@ const productController = {
         res.render('busqueda')
     },
     category: (req, res) =>{
-        res.render('category')
+        let id = req.params.id;
+        let productosId = products.filter(producto => producto.idCategory == id)
+        res.render('category', {productosId})
     },
     kart: (req, res) =>{
         res.render('kart')
@@ -19,7 +21,7 @@ const productController = {
         res.render('productAdd')
     },
     productStore: (req, res) =>{
-        let newProduct = {
+      let newProduct = {
 			id: products[products.length - 1].id + 1,
             nombreProducto: req.body.nombreProducto,
             descripcion: req.body.descripcion,
@@ -27,7 +29,7 @@ const productController = {
             idCategory: req.body.idCategory,
             colores: ["","",""],
             price: req.body.precioProducto
-           }
+      }
 		products.push(newProduct)
 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
 		res.redirect('/');

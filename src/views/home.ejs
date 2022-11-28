@@ -17,77 +17,68 @@
 
 <body>
   <%- include('./partials/header') %>
-  <main>
-    <section id="first-section">
-      <div class="overlay"></div>
-      <div class="content">
-        <h1>PrintTo3D</h1>
-        <div class="search">
-          <p>Busca tu producto</p>
-          <input type="text" placeholder="Impresora...">
-          <div class="button-container">
-            <button type="button">
-              Buscar
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="categorie-section">
-      <div class="categorie-container">
-        <div class="overlay-categorie"></div>
-        <article>
-          <h3>Categoría 1</h3>
-          <p>Suspendisse potenti. Nunc ut vulputate nibh. Integer aliquet finibus as Phasellus rutrum nisl nec
-            Suspendisse potenti. Nunc ut vulputate nibh. Integer aliquet finibus as Phasellus rutrum nisl nec
-            Suspendisse pot</p>
-          <button type="button">
-            Ver más
-          </button>
-        </article>
-        <img src="/img/imgg.jpg" alt="" width="500px">
-      </div>
-      <div class="categorie-container">
-        <div class="overlay-categorie"></div>
-        <article>
-          <h3>Categoría 2</h3>
-          <p>Suspendisse potenti. Nunc ut vulputate nibh. Integer aliquet finibus as Phasellus rutrum nisl nec
-            Suspendisse potenti. Nunc ut vulputate nibh. Integer aliquet finibus as Phasellus rutrum nisl nec
-            Suspendisse pot</p>
-          <button type="button">
-            Ver más
-          </button>
-        </article>
-        <img src="/img/imgg.jpg" alt="" width="500px">
-      </div>
-    </section>
-    <section id="mail-section">
-      <div class="mail-container">
-        <div class="info-container">
-          <h4>Contacto</h4>
-          <p>Envíenos su consulta y nos comunicaremos en breve para resolver sus inquietudes</p>
-        </div>
-        <form action="/mail" method="post">
-          <div class="data-container">
-            <div class="field-container">
-              <label for="nombreApellido">Nombre y apellido:</label>
-              <input type="text" placeholder="Nombre y Apellido" id="nombreApellido" name="nombreApellido">
-            </div>
-            <div class="field-container">
-              <label for="correo">Correo electrónico:</label>
-              <input type="email" placeholder="Correo electrónico" id="correo" name="correo">
+    <main>
+      <section id="first-section">
+        <div class="overlay"></div>
+        <div class="content">
+          <h1>PrintTo3D</h1>
+          <div class="search">
+            <p>Busca tu producto</p>
+            <input type="text" placeholder="Impresora...">
+            <div class="button-container">
+              <button type="button">
+                Buscar
+              </button>
             </div>
           </div>
-          <div class="field-container">
-            <label for="message">Mensaje:</label>
-            <textarea name="message" placeholder="Mensaje" id="message" cols="30" rows="10"></textarea>
+        </div>
+      </section>
+      <section id="categorie-section">
+        <% for(let i=0; i<categories.length; i++) {%>
+          <div class="categorie-container">
+            <div class="overlay-categorie"></div>
+            <article>
+              <h3>
+                <%= categories[i].nombreCategoria %>
+              </h3>
+              <p> <%= categories[i].descripcion%></p>
+              <button type="button">
+                Ver más
+              </button>
+            </article>
+            <img src=" <%= "/img/" + categories[i].imagen %>" alt="" width="500px">
           </div>
-          <button type="submit" id="mail-submit">Enviar correo</button>
-        </form>
-      </div>
-    </section>
-  </main>
-  <%- include('./partials/footer') %>
+          <% } %>
+
+
+      </section>
+      <section id="mail-section">
+        <div class="mail-container">
+          <div class="info-container">
+            <h4>Contacto</h4>
+            <p>Envíenos su consulta y nos comunicaremos en breve para resolver sus inquietudes</p>
+          </div>
+          <form action="/mail" method="post">
+            <div class="data-container">
+              <div class="field-container">
+                <label for="nombreApellido">Nombre y apellido:</label>
+                <input type="text" placeholder="Nombre y Apellido" id="nombreApellido" name="nombreApellido">
+              </div>
+              <div class="field-container">
+                <label for="correo">Correo electrónico:</label>
+                <input type="email" placeholder="Correo electrónico" id="correo" name="correo">
+              </div>
+            </div>
+            <div class="field-container">
+              <label for="message">Mensaje:</label>
+              <textarea name="message" placeholder="Mensaje" id="message" cols="30" rows="10"></textarea>
+            </div>
+            <button type="submit" id="mail-submit">Enviar correo</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <%- include('./partials/footer') %>
 </body>
 
 </html>
