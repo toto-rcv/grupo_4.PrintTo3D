@@ -8,7 +8,7 @@ router.get('/busqueda', productController.busqueda);
 router.get('/category/:id', productController.category);
 router.get('/kart', productController.kart);
 router.get('/productAdd', productController.productAdd);
-router.get('/productDetails', productController.productDetails);
+router.get('/productDetails/:id', productController.productDetails);
 const storage = multer.diskStorage({
 	destination: function (req, file, cb) {
 		cb(null, "public/img/products");
