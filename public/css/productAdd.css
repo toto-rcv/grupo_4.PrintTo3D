@@ -4,7 +4,7 @@
 
 main {
     width: 100%;
-    height: 100vh;
+    height: 120vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,7 +23,7 @@ a{
     color: #0093d7;
 }
 
-input, textarea{
+.contenedor-form__input{
     display: block;
     width: 100%;
     padding: 10px 5px;
@@ -34,6 +34,9 @@ input, textarea{
     color: black;
     border-radius: 10px;
 }
+
+
+
 textarea{
     height: 200px;
 }
@@ -61,7 +64,7 @@ textarea{
     margin: 100px auto;
     border: 4px #0093d7 solid;
     border-radius: 20px;
-    max-width:1500px ;
+    max-width:900px ;
     
 }
 
@@ -89,24 +92,8 @@ textarea{
     }
  }
 
-
- 
  @media(min-width:769px){
     .contenedor-form { 
         width: 90%;
     } 
- }
-
- @media(min-width:1200px){
-    .contenedor-form__Agrupa { 
-        display: flex;
-        justify-content: space-between;
-        align-items:flex-start;
-    } 
-    .contenedor-form__imagenproducto{
-        width: 30%;
-    }
-    .contenedor-form__detalleProcucto{
-        width: 60%;
-    }
  }

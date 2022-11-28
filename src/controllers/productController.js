@@ -1,8 +1,8 @@
-const fs = require("fs")
-const path = require("path")
+const fs = require('fs');
+const path = require('path');
 
-const productsJson = path.join(__dirname, '../database/products.json')
-const products = JSON.parse(fs.readFileSync(productsJson, 'utf-8'));
+const productsFilePath = path.join(__dirname, '../database/products.json');
+const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 
 const productController = {
@@ -19,6 +19,20 @@ const productController = {
     },
     productAdd: (req, res) =>{
         res.render('productAdd')
+    },
+    productStore: (req, res) =>{
+      let newProduct = {
+			id: products[products.length - 1].id + 1,
+            nombreProducto: req.body.nombreProducto,
+            descripcion: req.body.descripcion,
+            image: req.file ? req.file.filename :'default-image.jpg',
+            idCategory: req.body.idCategory,
+            colores: ["","",""],
+            price: req.body.precioProducto
+      }
+		products.push(newProduct)
+		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
+		res.redirect('/');
     },
     productDetails: (req, res) =>{
         res.render('product')
