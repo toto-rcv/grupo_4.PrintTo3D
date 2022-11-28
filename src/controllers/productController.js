@@ -1,9 +1,18 @@
+const fs = require("fs")
+const path = require("path")
+
+const productsJson = path.join(__dirname, '../database/products.json')
+const products = JSON.parse(fs.readFileSync(productsJson, 'utf-8'));
+
+
 const productController = {
     busqueda: (req, res) =>{
         res.render('busqueda')
     },
     category: (req, res) =>{
-        res.render('category')
+        let id = req.params.id;
+        let productosId = products.filter(producto => producto.idCategory == id)
+        res.render('category', {productosId})
     },
     kart: (req, res) =>{
         res.render('kart')

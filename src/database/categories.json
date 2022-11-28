@@ -2,19 +2,19 @@
     {
         "id":1,
         "nombreCategoria":"Impresoras de Filamento",
-        "descripcion":"",
-        "imagen": ""
+        "descripcion":"descripcion1",
+        "imagen": "imgg.jpg"
     },
     {
         "id":2,
         "nombreCategoria":"Impresoras de Resina",
-        "descripcion":"",
-        "imagen":""
+        "descripcion":"descripcion2",
+        "imagen":"imgg.jpg"
     },
     {
         "id":3,
         "nombreCategoria":"Insumos",
-        "descripcion":"",
-        "imagen":""
+        "descripcion":"descripcion3",
+        "imagen":"imgg.jpg"
     }
 ]

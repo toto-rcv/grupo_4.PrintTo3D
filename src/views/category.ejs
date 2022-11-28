@@ -1,105 +1,57 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>
-      PrintTo3D
-    </title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/layoutStyles.css">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/categoryStyles.css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
-  <body>
-    <%- include('./partials/header') %>
-  <main>
-    <section id="first-section">
-      <div class="overlay"></div>
-      <div class="content">
-        <div class="search">
-          <p>Busca tu producto</p>
-          <input type="text" placeholder="Impresora...">
-          <div class="button-container">
-            <button type="button">
-              Buscar
-            </button>
+
+<head>
+  <title>
+    PrintTo3D
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/layoutStyles.css">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/categoryStyles.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <%- include('./partials/header') %>
+    <main>
+      <section id="first-section">
+        <div class="overlay"></div>
+        <div class="content">
+          <div class="search">
+            <p>Busca tu producto</p>
+            <input type="text" placeholder="Impresora...">
+            <div class="button-container">
+              <button type="button">
+                Buscar
+              </button>
+            </div>
           </div>
         </div>
+      </section>
+      <h2 class="titulo-categoria">Impresoras 3D</h2>
+      <div class="box-articulos">
+        <% for(let i=0; i<productosId.length; i++) { %>
+          <section>
+            <img src="<%= "/img/" + productosId[i].image  %>" alt="imagen de producto">
+            <article>
+              <div class="box-precio">
+                <p class="precio"><%= productosId[i].price %>
+                  <span class="descuento">20% off</span>
+                </p>
+              </div>
+              <h3>
+                <%= productosId[i].nombreProducto %>
+              </h3>
+            </article>
+          </section>
+          <% } %>
       </div>
-    </section>
-    <h2 class="titulo-categoria">Impresoras 3D</h2>
-    <div class="box-articulos">
-      <section>
-        <img src="img/impresora1.jpg" alt="imagen de impresora">
-        <article>
-          <div class="box-precio">
-            <p class="precio">$0.000
-              <span class="descuento">20% off</span>
-            </p>
-          </div>
-          <h3>Impresora Modelo 1</h3>
-        </article>
-      </section>
-      <section>
-        <img class="img" src="img/impresora1.jpg" alt="imagen de impresora">
-        <article>
-          <div class="contenedor-precio">
-            <p class="precio">$0.000
-              <span class="descuento">20% off</span>
-            </p>
-          </div>
-          <h3>Impresora Modelo 2</h3>
-        </article>
-      </section>
-      <section>
-        <img class="img" src="img/impresora1.jpg" alt="imagen de impresora">
-        <article>
-          <div class="contenedor-precio">
-            <p class="precio">$0.000
-              <span class="descuento">20% off</span>
-            </p>
-          </div>
-          <h3>Impresora Modelo 3</h3>
-        </article>
-      </section>
-      <section>
-        <img class="img" src="img/impresora1.jpg" alt="imagen de impresora">
-        <article>
-          <div class="contenedor-precio">
-            <p class="precio">$0.000
-              <span class="descuento">20% off</span>
-            </p>
-          </div>
-          <h3>Impresora Modelo 4</h3>
-        </article>
-      </section>
-      <section>
-        <img class="img" src="img/impresora5.jpg" alt="imagen de impresora">
-        <article>
-          <div class="contenedor-precio">
-            <p class="precio">$0.000
-              <span class="descuento">20% off</span>
-            </p>
-          </div>
-          <h3>Impresora Modelo 5</h3>
-        </article>
-      </section>
-      <section>
-        <img class="img" src="img/impresora6.jpg" alt="imagen de impresora">
-        <article>
-          <div class="contenedor-precio">
-            <p class="precio">$0.000
-              <span class="descuento">20% off</span>
-            </p>
-          </div>
-          <h3>Impresora Modelo 6</h3>
-        </article>
-      </section>
-    </div>
-  </main>
+    </main>
     <%- include('./partials/footer') %>
 </body>
+
 </html>
