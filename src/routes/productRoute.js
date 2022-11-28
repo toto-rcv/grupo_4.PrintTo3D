@@ -7,7 +7,6 @@ const path = require("path");
 router.get('/busqueda', productController.busqueda);
 router.get('/category/:id', productController.category);
 router.get('/kart', productController.kart);
-router.get('/productAdd', productController.productAdd);
 router.get('/productDetails/:id', productController.productDetails);
 const storage = multer.diskStorage({
 	destination: function (req, file, cb) {
@@ -31,11 +30,12 @@ router.get("/category", productController.category);
 router.get("/kart", productController.kart);
 
 /*** CREATE ONE PRODUCT ***/
-router.get("/productAdd", productController.productAdd);
-router.post("/productAdd",upload.single('image'), productController.productStore);
+router.get("/products/create", productController.productAdd);
+router.post("/products/create",upload.single('image'), productController.productStore);
 
 /*** EDIT ONE PRODUCT ***/
-    //falta ruta
+router.get('/products/:id/edit', productController.edit); 
+router.put('/products/:id', upload.single("image"), productController.update); 
 
 /*** GET ONE PRODUCT ***/
 router.get("/productDetails", productController.productDetails);

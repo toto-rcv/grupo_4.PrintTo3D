@@ -9,8 +9,6 @@ const mainController = {
     index: (req, res) => {
         res.render('home', {categories})
     },
-
-
 }
 
 module.exports = mainController;

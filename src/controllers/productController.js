@@ -13,6 +13,37 @@ const productController = {
         let productosId = products.filter(producto => producto.idCategory == id)
         res.render('category', {productosId})
     },
+    edit: (req, res) => {
+		let id = req.params.id
+		let productToEdit = products.find(product => product.id == id)
+		res.render('productEdit', {productToEdit})
+    },
+    update: (req, res) => {
+        console.log("hola")
+		let id = req.params.id;
+		let productToEdit = products.find(product => product.id == id)
+
+		productToEdit = {
+            id: productToEdit.id,
+            nombreProducto: req.body.nombreProducto,
+            descripcion: req.body.descripcion,
+            descripcionAmpliada: req.body.descripcionAmpliada,
+            image: req.file ? req.file.filename :'default-image.jpg',
+            idCategory: req.body.idCategory,
+            colores: ["","",""],
+            price: req.body.precioProducto
+		};
+		
+		let newProducts = products.map(product => {
+			if (product.id == productToEdit.id) {
+				return product = {...productToEdit};
+			}
+			return product;
+		})
+
+		fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '));
+		res.redirect('/');
+	},
     kart: (req, res) =>{
         res.render('kart')
     },
