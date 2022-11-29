@@ -5,7 +5,7 @@
         "descripcion":"Suspendisse potenti. Nunc ut vulputate nibh. Integer aliquet finibus as Phasellus rutrum nisl nec",
         "descripcionAmpliada":"Suspendisse potenti. Nunc ut vulputate nibh. Integer aliquet finibus as Phasellus rutrum nisl nec Suspendisse potenti. Nunc ut vulputate nibh. Integer aliquet finibus as Phasellus rutrum nisl nec Suspendisse potenti. Nunc ut vulputate nibh. Integer aliquet finibus as Phasellus rutrum nisl nec",
         "image":"impresora1.jpg",
-        "idCategory":1,
+        "idCategory":2,
         "colores":["#e30000", "#ffffff", "#ffffff"],
         "price": 72000
     },
@@ -15,7 +15,7 @@
         "descripcion":"",
         "descripcionAmpliada":"",
         "image":"impresora1.jpg",
-        "idCategory":1,
+        "idCategory":3,
         "colores":["","",""],
         "price": 65000
     },

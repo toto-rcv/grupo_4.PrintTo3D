@@ -34,7 +34,7 @@
                     <!-- Agregar Categoria de forma Automatica  -->
                     <select class="contenedor-form__input" name="idCategory" id="category" >  
                         <% for(let i=0; i<categories.length; i++) {%>
-                            <option value="<%= categories[i].id %>"><%= categories[i].nombreCategoria %></option>
+                            <option value="<%= categories[i].id %>" <%= productToEdit.idCategory == categories[i].id ? "selected" : "" %>><%= categories[i].nombreCategoria %></option>
                         <% } %>
                     </select>
                     <textarea class="contenedor-form__input" name="descripcion" id="descripcion" placeholder="Descripción" ><%= productToEdit.descripcion ? productToEdit.descripcion : "" %></textarea>
