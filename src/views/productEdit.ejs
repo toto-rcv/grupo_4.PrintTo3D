@@ -33,9 +33,9 @@
                     <input class="contenedor-form__input" type="text" name="nombreProducto" id="nombreProducto" placeholder="Nombre del Producto" value="<%= productToEdit.nombreProducto ? productToEdit.nombreProducto : "" %>">
                     <!-- Agregar Categoria de forma Automatica  -->
                     <select class="contenedor-form__input" name="idCategory" id="category" >  
-                        <option value="1">Impresoras de Filamento</option>
-                        <option value="2">Impresoras de Resina</option>
-                        <option value="3">Insumos</option>
+                        <% for(let i=0; i<categories.length; i++) {%>
+                            <option value="<%= categories[i].id %>"><%= categories[i].nombreCategoria %></option>
+                        <% } %>
                     </select>
                     <textarea class="contenedor-form__input" name="descripcion" id="descripcion" placeholder="Descripción" ><%= productToEdit.descripcion ? productToEdit.descripcion : "" %></textarea>
                     <textarea class="contenedor-form__input" name="descripcionAmpliada" id="descripcionAmpliada" placeholder="Descripción ampliada"><%= productToEdit.descripcionAmpliada ? productToEdit.descripcionAmpliada : "" %></textarea>

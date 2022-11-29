@@ -4,6 +4,10 @@ const path = require('path')
 const productsFilePath = path.join(__dirname, '../database/products.json')
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'))
 
+const categoryJson = path.join(__dirname, '../database/categories.json')
+const categories = JSON.parse(fs.readFileSync(categoryJson, 'utf-8'));
+
+
 const productController = {
     busqueda: (req, res) =>{
         res.render('busqueda')
@@ -16,7 +20,7 @@ const productController = {
     edit: (req, res) => {
 		let id = req.params.id
 		let productToEdit = products.find(product => product.id == id)
-		res.render('productEdit', {productToEdit})
+		res.render('productEdit', {productToEdit,categories})
     },
     update: (req, res) => {
         console.log("hola")
@@ -48,7 +52,7 @@ const productController = {
         res.render('kart')
     },
     productAdd: (req, res) =>{
-        res.render('productAdd')
+        res.render('productAdd',{categories})
     },
     productStore: (req, res) =>{
       let newProduct = {
