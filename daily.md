@@ -11,3 +11,15 @@
 -Se genera json de categorias
 -Agregamos multer
 -Agregamos configuraciones en app.js para uso de forms, y multer.
+
+#29/11/2022
+-Se generan las rutas de:
+1) Products (GET)
+2) Products/create (GET)
+3) Products/:id (GET)
+4) Products (POST)
+5) Products/:id/edit (GET)
+6) Products/:id (PUT)
+7) Products/:id (DELETE)
+-Se agregan archivos products.json y users.json con datos de productos y usuarios.
+
