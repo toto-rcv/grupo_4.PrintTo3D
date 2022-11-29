@@ -41,10 +41,12 @@
               <h3>
                 <%= categories[i].nombreCategoria %>
               </h3>
-              <p> <%= categories[i].descripcion%></p>
-              <button type="button">
-                Ver más
-              </button>
+              <p><%= categories[i].descripcion%></p>
+              <a href="/category/<%= categories[i].id %>">
+                <button type="button">
+                  Ver más
+                </button>
+              </a>
             </article>
             <img src=" <%= "/img/" + categories[i].imagen %>" alt="" width="500px">
           </div>

@@ -20,8 +20,9 @@
 <body>
     <%- include('./partials/header') %>  
     <main>
-        <form class="contenedor-form" action="" method="POST" enctype="multipart/form-data">
-            <h1>Alta de Nuevo Producto</h1>
+      <div class="forms-container">
+        <form class="contenedor-form" action="/products/<%= productToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <h1>Editar Producto</h1>
             <div class="contenedor-form__Agrupa">
 
                 <!--<div class="contenedor-form__imagenproducto">
@@ -33,25 +34,27 @@
                     <input class="contenedor-form__input" type="text" name="nombreProducto" id="nombreProducto" placeholder="Nombre del Producto" value="<%= productToEdit.nombreProducto ? productToEdit.nombreProducto : "" %>">
                     <!-- Agregar Categoria de forma Automatica  -->
                     <select class="contenedor-form__input" name="idCategory" id="category" >  
-                        <% for(let i=0; i<categories.length; i++) {%>
-                            <option value="<%= categories[i].id %>" <%= productToEdit.idCategory == categories[i].id ? "selected" : "" %>><%= categories[i].nombreCategoria %></option>
-                        <% } %>
+                      <% for(let i=0; i<categories.length; i++) {%>
+                        <option value="<%= categories[i].id %>" <%= productToEdit.idCategory == categories[i].id ? "selected" : "" %>><%= categories[i].nombreCategoria %></option>
+                      <% } %>
                     </select>
                     <textarea class="contenedor-form__input" name="descripcion" id="descripcion" placeholder="Descripción" ><%= productToEdit.descripcion ? productToEdit.descripcion : "" %></textarea>
                     <textarea class="contenedor-form__input" name="descripcionAmpliada" id="descripcionAmpliada" placeholder="Descripción ampliada"><%= productToEdit.descripcionAmpliada ? productToEdit.descripcionAmpliada : "" %></textarea>
                     <input class="contenedor-form__input" type="number" name="precioProducto" id="precioProducto" placeholder="Precio del Producto" value="<%= productToEdit.price ? productToEdit.price : "" %>">   
                     <input class="contenedor-form__input" type="file" id="image" name="image" >          
                     <!-- Agregar colores de forma Automatica  -->
-                   
                     <div class="contenedor-form__detalleProcucto--botones">
-                        <input class="button-center contenedor-form__input" type="button" name="descartar" id="button" value="Descartar">
-                        <input class="button-center contenedor-form__input" type="submit" name="guardar" id="button" value="Guardar">
+                      <input class="button-center contenedor-form__input" type="button" name="descartar" id="button" value="Descartar">
+                      <input class="button-center contenedor-form__input" type="submit" name="guardar" id="button" value="Guardar">
                     </div>
                 </div>
             </div>
         </form>
+        <form class="contenedor-form__detalleProcucto--botones delete-form" action="/products/<%= productToEdit.id %>?_method=DELETE" method="POST" enctype="multipart/form-data">
+          <input class="button-center contenedor-form__input delete-button" type="submit" name="eliminar" id="button" value="Eliminar">
+        </form>
+      </div>
     </main>
-
     <%- include('./partials/footer') %>  
 </body>
 

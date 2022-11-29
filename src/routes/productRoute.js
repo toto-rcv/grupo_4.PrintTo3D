@@ -34,8 +34,9 @@ router.get("/products/create", productController.productAdd);
 router.post("/products/create",upload.single('image'), productController.productStore);
 
 /*** EDIT ONE PRODUCT ***/
-router.get('/products/:id/edit', productController.edit); 
-router.put('/products/:id', upload.single("image"), productController.update); 
+router.get('/products/:id/edit', productController.edit);
+router.put('/products/:id', upload.single("image"), productController.update);
+router.delete('/products/:id', productController.delete);
 
 /*** GET ONE PRODUCT ***/
 router.get("/productDetails", productController.productDetails);

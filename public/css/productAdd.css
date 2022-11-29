@@ -23,6 +23,31 @@ a{
     color: #0093d7;
 }
 
+.forms-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+  width: 100%;
+  padding: 30px 25px;
+  margin-top: 100px auto;
+  margin-left: 100px auto;
+  margin-right: 100px auto;
+  border: 4px #0093d7 solid;
+  border-radius: 20px;
+  max-width: 900px;
+  position: relative;
+}
+
+.forms-container .delete-form {
+  width: 50%;
+  position: relative;
+}
+
+.forms-container input .delete-button {
+  width: 50%;
+}
+
 .contenedor-form__input{
     display: block;
     width: 100%;
@@ -34,8 +59,6 @@ a{
     color: black;
     border-radius: 10px;
 }
-
-
 
 textarea{
     height: 200px;
@@ -52,20 +75,12 @@ textarea{
 .button-center__editImagen{
     margin: 0px 20px 20px 20px;
     margin-bottom: 20px;
-
     max-width: 300px;
-
 }
 
 
 .contenedor-form {
     width: 100%;
-    padding: 30px 25px;
-    margin: 100px auto;
-    border: 4px #0093d7 solid;
-    border-radius: 20px;
-    max-width:900px ;
-    
 }
 
 .contenedor-form__detalleProcucto--botones{

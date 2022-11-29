@@ -1,62 +1,86 @@
 [
-    {
-        "id":1,
-        "nombreProducto":"Creality Ender 3 V2",
-        "descripcion":"Suspendisse potenti. Nunc ut vulputate nibh. Integer aliquet finibus as Phasellus rutrum nisl nec",
-        "descripcionAmpliada":"Suspendisse potenti. Nunc ut vulputate nibh. Integer aliquet finibus as Phasellus rutrum nisl nec Suspendisse potenti. Nunc ut vulputate nibh. Integer aliquet finibus as Phasellus rutrum nisl nec Suspendisse potenti. Nunc ut vulputate nibh. Integer aliquet finibus as Phasellus rutrum nisl nec",
-        "image":"impresora1.jpg",
-        "idCategory":2,
-        "colores":["#e30000", "#ffffff", "#ffffff"],
-        "price": 72000
-    },
-    {
-        "id":2,
-        "nombreProducto":"Hellbot Magna 2",
-        "descripcion":"",
-        "descripcionAmpliada":"",
-        "image":"impresora1.jpg",
-        "idCategory":3,
-        "colores":["","",""],
-        "price": 65000
-    },
-    {
-        "id":3,
-        "nombreProducto":"Creality Ender-6",
-        "descripcion":"Suspendisse potenti. Nunc ut vulputate nibh. Integer aliquet finibus as Phasellus rutrum nisl nec",
-        "descripcionAmpliada":"",
-        "image":"impresora1.jpg",
-        "idCategory":2,
-        "colores":["","",""],
-        "price": 85000
-    },
-    {
-        "id":4,
-        "nombreProducto":"Creality CR-5 PRO",
-        "descripcion":"",
-        "descripcionAmpliada":"",
-        "image":"impresora1.jpg",
-        "idCategory":2,
-        "colores":["","",""],
-        "price":62000
-    },
-    {
-        "id":5,
-        "nombreProducto":"Filamento Pla Silk",
-        "descripcion":"",
-        "descripcionAmpliada":"",
-        "image":"impresora1.jpg",
-        "idCategory":3,
-        "colores":["","",""],
-        "price": 4600
-    },
-    {
-        "id":6,
-        "nombreProducto":"Filamento 3D PLA",
-        "descripcion":"",
-        "descripcionAmpliada":"",
-        "image":"impresora1.jpg",
-        "idCategory":3,
-        "colores":["","",""],
-        "price": 3900
-    }
+ {
+  "id": 1,
+  "nombreProducto": "Creality Ender 3 V2",
+  "descripcion": "Suspendisse potenti. Nunc ut vulputate nibh. Integer aliquet finibus as Phasellus rutrum nisl nec",
+  "descripcionAmpliada": "Suspendisse potenti. Nunc ut vulputate nibh. Integer aliquet finibus as Phasellus rutrum nisl nec Suspendisse potenti. Nunc ut vulputate nibh. Integer aliquet finibus as Phasellus rutrum nisl nec Suspendisse potenti. Nunc ut vulputate nibh. Integer aliquet finibus as Phasellus rutrum nisl nec",
+  "image": "impresora1.jpg",
+  "idCategory": 1,
+  "colores": [
+   "#e30000",
+   "#ffffff",
+   "#ffffff"
+  ],
+  "price": 72000
+ },
+ {
+  "id": 2,
+  "nombreProducto": "Creality Ender-6 2",
+  "descripcion": "Suspendisse potenti. Nunc ut vulputate nibh. Integer aliquet finibus as Phasellus rutrum nisl nec",
+  "descripcionAmpliada": "",
+  "image": "impresora1.jpg",
+  "idCategory": 2,
+  "colores": [
+   "",
+   "",
+   ""
+  ],
+  "price": 85000
+ },
+ {
+  "id": 3,
+  "nombreProducto": "Creality Ender-6",
+  "descripcion": "Suspendisse potenti. Nunc ut vulputate nibh. Integer aliquet finibus as Phasellus rutrum nisl nec",
+  "descripcionAmpliada": "",
+  "image": "impresora1.jpg",
+  "idCategory": 2,
+  "colores": [
+   "",
+   "",
+   ""
+  ],
+  "price": 85000
+ },
+ {
+  "id": 4,
+  "nombreProducto": "Creality CR-5 PRO",
+  "descripcion": "",
+  "descripcionAmpliada": "",
+  "image": "impresora1.jpg",
+  "idCategory": 2,
+  "colores": [
+   "",
+   "",
+   ""
+  ],
+  "price": 62000
+ },
+ {
+  "id": 5,
+  "nombreProducto": "Filamento Pla Silk",
+  "descripcion": "",
+  "descripcionAmpliada": "",
+  "image": "impresora1.jpg",
+  "idCategory": 3,
+  "colores": [
+   "",
+   "",
+   ""
+  ],
+  "price": 4600
+ },
+ {
+  "id": 6,
+  "nombreProducto": "Filamento 3D PLA",
+  "descripcion": "",
+  "descripcionAmpliada": "",
+  "image": "impresora1.jpg",
+  "idCategory": 3,
+  "colores": [
+   "",
+   "",
+   ""
+  ],
+  "price": 3900
+ }
 ]
