@@ -8,10 +8,6 @@ const methodOverride =  require('method-override'); // Pasar poder usar los mét
 app.use(methodOverride('_method'));
 
 
-
-
-
-
 app.listen(3000, ()=>{
   console.log('Servidor funcionando');
   });
