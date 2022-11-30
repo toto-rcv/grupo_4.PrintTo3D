@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="/css/productAdd.css">
     <link rel="stylesheet" href="/css/layoutStyles.css">
     <link rel="stylesheet" href="/css/reset.css">
-
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +21,6 @@
         <form class="contenedor-form" action="" method="POST" enctype="multipart/form-data">
             <h1>Alta de Nuevo Producto</h1>
             <div class="contenedor-form__Agrupa">
-
                 <!--<div class="contenedor-form__imagenproducto">
                     <img src="/img/imgg.jpg" alt="product-image">
                     <input class="button-center button-center__editImagen" type="button" name="cambiarImagen" id="cambiarImagen" value="Cambiar Imagen">
@@ -31,26 +28,34 @@
                 -->
                 <div class="contenedor-form__detalleProcucto">
                     <input class="contenedor-form__input" type="text" name="nombreProducto" id="nombreProducto" placeholder="Nombre del Producto">
-                    <select class="contenedor-form__input" name="idCategory" id="category">  
-                        <% for(let i=0; i<categories.length; i++) {%>
-                            <option value="<%= categories[i].id %>"><%= categories[i].nombreCategoria %></option>
-                        <% } %>
+                    <select class="contenedor-form__input" name="idCategory" id="category">
+                      <% for(let i=0; i<categories.length; i++) {%>
+                        <option value="<%= categories[i].id %>"><%= categories[i].nombreCategoria %></option>
+                      <% } %>
                     </select>
                     <textarea class="contenedor-form__input" name="descripcion" id="descripcion" placeholder="Descripción"></textarea>
                     <textarea class="contenedor-form__input" name="descripcionAmpliada" id="descripcionAmpliada" placeholder="Descripción ampliada"></textarea>
-                    <input class="contenedor-form__input" type="number" name="precioProducto" id="precioProducto" placeholder="Precio del Producto">   
-                    <input class="contenedor-form__input" type="file" id="image" name="image" >          
-                    <!-- Agregar colores de forma Automatica  -->
-                   
+                    <input class="contenedor-form__input" type="number" name="precioProducto" id="precioProducto" placeholder="Precio del Producto">
+                    <input class="contenedor-form__input" type="file" id="image" name="image">
+                    <label for="colores">Colores:</label>
+                    <div class="colors-container">
+                      <% for(let i=0; i<colores.length; i++) {%>
+                        <div class="individual-colors-container">
+                          <input type="checkbox" name="colores" id="<%= colores[i] %>" value="<%= colores[i] %>" style="height: 30px; width: 30px; background-color: #ffffff; font-size: 40px;">
+                          <label for="<%= colores[i] %>">
+                            <div class="color" style="background-color:<%= colores[i] %>;"></div>
+                          </label>
+                        </div>
+                      <% } %>
+                    </div>
                     <div class="contenedor-form__detalleProcucto--botones">
-                        <input class="button-center contenedor-form__input" type="button" name="descartar" id="button" value="Descartar">
-                        <input class="button-center contenedor-form__input" type="submit" name="guardar" id="button" value="Guardar">
+                      <input class="button-center contenedor-form__input" type="button" name="descartar" id="button" value="Descartar">
+                      <input class="button-center contenedor-form__input" type="submit" name="guardar" id="button" value="Guardar">
                     </div>
                 </div>
             </div>
         </form>
     </main>
-
     <%- include('./partials/footer') %>  
 </body>
 

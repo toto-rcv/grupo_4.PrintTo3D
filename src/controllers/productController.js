@@ -5,7 +5,9 @@ const productsFilePath = path.join(__dirname, '../database/products.json')
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'))
 
 const categoryJson = path.join(__dirname, '../database/categories.json')
-const categories = JSON.parse(fs.readFileSync(categoryJson, 'utf-8'));
+const categories = JSON.parse(fs.readFileSync(categoryJson, 'utf-8'))
+const coloresJson = path.join(__dirname, '../database/colores.json')
+const colores = JSON.parse(fs.readFileSync(coloresJson, 'utf-8'))
 
 
 const productController = {
@@ -20,9 +22,11 @@ const productController = {
     edit: (req, res) => {
 		let id = req.params.id
 		let productToEdit = products.find(product => product.id == id)
-		res.render('productEdit', {productToEdit,categories})
+		res.render('productEdit', {productToEdit,categories, colores})
     },
     update: (req, res) => {
+      let colorsArr = [req.body.colores]
+      colorsArr = colorsArr.flat()
 		  let id = req.params.id
 		  let productToEdit = products.find(product => product.id == id)
 		  productToEdit = {
@@ -32,7 +36,7 @@ const productController = {
         descripcionAmpliada: req.body.descripcionAmpliada,
         image: req.file ? req.file.filename :'default-image.jpg',
         idCategory: req.body.idCategory,
-        colores: ["","",""],
+        colores: colorsArr,
         price: req.body.precioProducto
 		  }
 		  let newProducts = products.map(product => {
@@ -54,7 +58,7 @@ const productController = {
         res.render('kart')
     },
     productAdd: (req, res) =>{
-        res.render('productAdd',{categories})
+        res.render('productAdd',{categories, colores})
     },
     productStore: (req, res) =>{
       let newProduct = {
@@ -64,7 +68,7 @@ const productController = {
             descripcionAmpliada: req.body.descripcionAmpliada,
             image: req.file ? req.file.filename :'default-image.jpg',
             idCategory: req.body.idCategory,
-            colores: ["","",""],
+            colores: req.body.colores,
             price: req.body.precioProducto
       }
 		products.push(newProduct)

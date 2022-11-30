@@ -9,7 +9,7 @@
   "colores": [
    "#e30000",
    "#ffffff",
-   "#ffffff"
+   "#eeeeee"
   ],
   "price": 72000
  },
@@ -20,11 +20,7 @@
   "descripcionAmpliada": "",
   "image": "impresora1.jpg",
   "idCategory": 2,
-  "colores": [
-   "",
-   "",
-   ""
-  ],
+  "colores": [],
   "price": 85000
  },
  {
@@ -32,14 +28,13 @@
   "nombreProducto": "Creality Ender-6",
   "descripcion": "Suspendisse potenti. Nunc ut vulputate nibh. Integer aliquet finibus as Phasellus rutrum nisl nec",
   "descripcionAmpliada": "",
-  "image": "impresora1.jpg",
-  "idCategory": 2,
+  "image": "default-image.jpg",
+  "idCategory": "2",
   "colores": [
-   "",
-   "",
-   ""
+   "#03CA00",
+   "#F30000"
   ],
-  "price": 85000
+  "price": "85000"
  },
  {
   "id": 4,
@@ -48,11 +43,7 @@
   "descripcionAmpliada": "",
   "image": "impresora1.jpg",
   "idCategory": 2,
-  "colores": [
-   "",
-   "",
-   ""
-  ],
+  "colores": [],
   "price": 62000
  },
  {
@@ -62,11 +53,7 @@
   "descripcionAmpliada": "",
   "image": "impresora1.jpg",
   "idCategory": 3,
-  "colores": [
-   "",
-   "",
-   ""
-  ],
+  "colores": [],
   "price": 4600
  },
  {
@@ -76,11 +63,48 @@
   "descripcionAmpliada": "",
   "image": "impresora1.jpg",
   "idCategory": 3,
+  "colores": [],
+  "price": 3900
+ },
+ {
+  "id": 7,
+  "nombreProducto": "nombre",
+  "descripcion": "des",
+  "descripcionAmpliada": "des am",
+  "image": "default-image.jpg",
+  "idCategory": "2",
   "colores": [
    "",
    "",
    ""
   ],
-  "price": 3900
+  "price": "333"
+ },
+ {
+  "id": 8,
+  "nombreProducto": "nombre 2",
+  "descripcion": "desss",
+  "descripcionAmpliada": "des am",
+  "image": "default-image.jpg",
+  "idCategory": "1",
+  "colores": [
+   "",
+   "",
+   ""
+  ],
+  "price": "3333333"
+ },
+ {
+  "id": 9,
+  "nombreProducto": "Nuevo prod",
+  "descripcion": "Descripas",
+  "descripcionAmpliada": "assadasd",
+  "image": "default-image.jpg",
+  "idCategory": "2",
+  "colores": [
+   "#E8F300",
+   "#F30000"
+  ],
+  "price": "666666"
  }
 ]
