@@ -22,19 +22,45 @@
     <main>
         <form class="contenedor-form" action="" method="POST" enctype="multipart/form-data">
             <h1>Crea tu cuenta en PrintTo3D</h1>
-            <div class="contenedor-Nombre-contraseña">
-                <input type="text" name="nombre" id="nombre" placeholder="Nombre">
-                <input type="text" name="apellido" id="apellido" placeholder="Apellido">
+            <div class="contenedor-Nombre-Apellido">
+                <div class="contenedor-input">
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+                    <% if(locals.errores && errores.nombre) { %>
+                        <h4 class="text-error"><%= errores.nombre.msg %></h4>
+                    <% } %>
+                </div>
+    
+                <div class="contenedor-input">
+                    <input type="text" name="apellido" id="apellido" placeholder="Apellido">
+                    <% if(locals.errores && errores.apellido) { %>
+                        <h4 class="text-error"><%= errores.apellido.msg %></h4>
+                    <% } %>
+                </div>
             </div>
-            <input type="email" name="email" id="email" placeholder="Correo electronico">
-            <div class=contenedor-Nombre-contraseña>
+            
+            <div class="contenedor-input">
+                <input type="email" name="email" id="email" placeholder="Correo electronico">
+                <% if(locals.errores && errores.email) { %>
+                    <h4 class="text-error"><%= errores.email.msg %></h4>
+                <% } %>
+            </div>
+            <div class="contenedor-input">
                 <input type="password" name="password" id="password" placeholder="Contraseña">
-                <input type="password" name="password" id="password" placeholder="Confirmar contraseña">
-                <input class="input-malo" type="button" name="button" id="button" value="Mostrar contraseña">
             </div>
-            <div>
-                <input class="button-center" type="button" name="button" id="button" value="Crear">
+            <div class="contenedor-input">
+                <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirmar contraseña">
+                <% if(locals.errores && errores.confirmPassword) { %>
+                    <h4 class="text-error"><%= errores.confirmPassword.msg %></h4>
+                <% } %>
             </div>
+
+            <div class="contenedor-input">
+                <input class="contenedor-form__input" type="file" id="image" name="image">
+            </div>
+            <div class="contenedor-button-center" >
+                <input class="button-center" type="submit" name="button" id="button" value="Crear">
+            </div>
+
             <a href="/login">¿Ya tenes una cuenta?</a>
         </form>
     </main>
