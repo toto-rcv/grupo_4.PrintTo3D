@@ -17,6 +17,15 @@ const userController = {
 	},
 	userStore: (req, res) => {
 		let errores = validationResult(req);
+    if ((typeof users.find(user => user.email === req.body.email)) !== undefined && req.body.email !== '')
+      errores.errors.push(
+        {
+          "value": "",
+          "msg": "El usuario ya existe.",
+          "param": "emailRepetido",
+          "location": "body"
+        }
+      )
 		if (errores.isEmpty()) {
 			let newUser = {
 				id: users[users.length - 1].id + 1,
@@ -30,14 +39,43 @@ const userController = {
 			users.push(newUser);
 			fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
 			res.redirect("/login")
-		}
-		else{
-			res.render("register",{errores:errores.mapped()});
+		} else {
+			res.render("register", {errores: errores.mapped()});
 		}
 	},
 	login: (req, res) => {
 		res.render("login");
 	},
+	loginUser: (req, res) => {
+		let errores = validationResult(req);
+    console.log(req.body)
+    console.log(errores)
+    let usuarioEncontrado = users.find(user => user.email === req.body.email)
+    if ((typeof usuarioEncontrado) === undefined && req.body.email !== '')
+      errores.errors.push(
+        {
+          "value": "",
+          "msg": "El usuario no existe.",
+          "param": "emailInexistente",
+          "location": "body"
+        }
+      )
+    else {
+      if (!bcrypt.compareSync(req.body.password, usuarioEncontrado.password))
+        errores.errors.push(
+          {
+            "value": "",
+            "msg": "La contraseña es incorrecta.",
+            "param": "contrasenaIncorrecta",
+            "location": "body"
+          }
+        )
+      if (errores.isEmpty())
+        res.redirect("/")
+      else
+        res.redirect("/login", {errores: errores.mapped()})
+    }
+	}
 };
 
 module.exports = userController;
