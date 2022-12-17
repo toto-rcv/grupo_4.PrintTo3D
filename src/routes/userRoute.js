@@ -16,7 +16,11 @@ const validaciones = [
 		  throw new Error('Las contraseñas deben ser iguales')
 		}
 	})
+]
 
+const validacionesLogin = [
+  body('email').notEmpty().withMessage('Tiene que ingresar un email'),
+  body('password').notEmpty().withMessage('Tiene que ingresar una contraseña')
 ]
 
 
@@ -37,10 +41,11 @@ router.get('/recuperarContrasena', userController.contrasena)
 
 //REGISTER
 router.get('/register', userController.register)
-router.post("/register",upload.single('image'),validaciones, userController.userStore);
+router.post("/register", upload.single('image'), validaciones, userController.userStore);
 
 
 router.get('/login', userController.login)
+router.post('/login', validacionesLogin, userController.loginUser)
 
 
 module.exports = router;
