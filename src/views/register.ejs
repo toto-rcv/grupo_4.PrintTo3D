@@ -20,7 +20,7 @@
 <body>
     <%- include('./partials/header') %>
     <main>
-        <form class="contenedor-form" action="" method="POST" enctype="multipart/form-data">
+        <form class="contenedor-form" action="/register" method="POST" enctype="multipart/form-data">
             <h1>Crea tu cuenta en PrintTo3D</h1>
             <div class="contenedor-Nombre-Apellido">
                 <div class="contenedor-input">
@@ -40,8 +40,13 @@
             
             <div class="contenedor-input">
                 <input type="email" name="email" id="email" placeholder="Correo electronico">
-                <% if(locals.errores && errores.email) { %>
-                    <h4 class="text-error"><%= errores.email.msg %></h4>
+                <% if(locals.errores) { %>
+                  <% if(errores.email) { %>
+                      <h4 class="text-error"><%= errores.email.msg %></h4>
+                  <% } %>
+                  <% if(errores.emailRepetido) { %>
+                      <h4 class="text-error"><%= errores.emailRepetido.msg %></h4>
+                  <% } %>
                 <% } %>
             </div>
             <div class="contenedor-input">
