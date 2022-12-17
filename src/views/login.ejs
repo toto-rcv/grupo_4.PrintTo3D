@@ -20,10 +20,16 @@
 <body>
     <%- include('./partials/header') %>
     <main>
-        <form class="form-login" action="" method="POST">
+        <form class="form-login" action="/login" method="POST">
             <h1>Ingresa a PrintTo3D</h1>
-            <input type="email" name="email" id="email" placeholder="Correo electronico" required>
-            <input type="password" name="password" id="password" placeholder="Contraseña" required>
+            <input type="email" name="email" id="email" placeholder="Correo electronico">
+            <% if(locals.errores && errores.email) { %>
+                <h4 class="text-error"><%= errores.email.msg %></h4>
+            <% } %>
+            <input type="password" name="password" id="password" placeholder="Contraseña">
+            <% if(locals.errores && errores.password) { %>
+                <h4 class="text-error"><%= errores.password.msg %></h4>
+            <% } %>
             <input type="submit" name="submit" id="submit" value="Acceder">
             <div class="contenedor-preguntas-login">
                 <a href="#">¿Olvidaste el correo electronico?</a>

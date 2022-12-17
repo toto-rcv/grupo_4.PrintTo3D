@@ -28,7 +28,6 @@ input {
     padding: 10px 5px;
     border: none;
     border-bottom: 1px solid black;
-    margin: 30px auto;
     background: white;
     color: black;
     border-radius: 10px;
@@ -41,7 +40,10 @@ input {
     border-radius: 5px;
     color: white;
 }
-
+.contenedor-button-center{
+    display: flex;
+    justify-content: space-around;
+}
 
 
 .contenedor-form {
@@ -53,9 +55,18 @@ input {
     
 }
 
+.text-error{
+    font-size: 15px;
+    color: white;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    padding: 0%;
+}
 
-
-
+.contenedor-input{
+    margin: 20px;
+}
 
 /*Tablet*/
 @media(min-width: 364px) {
@@ -63,6 +74,8 @@ input {
         display: flex;
         flex-direction: row;
         column-gap: 10px;
+
+
     }
     .contenedor-form { 
         width: 95%;
