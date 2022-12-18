@@ -30,12 +30,13 @@
             <% if(locals.errores && errores.password) { %>
                 <h4 class="text-error"><%= errores.password.msg %></h4>
             <% } %>
-            <input type="submit" name="submit" id="submit" value="Acceder">
+            <input type="submit" name="button" id="button" value="Acceder">
             <div class="contenedor-preguntas-login">
                 <a href="#">¿Olvidaste el correo electronico?</a>
                 <a href="/recuperacion">¿Olvidaste la contraseña?</a>
             </div>
         </form>
+
     </main>
     <%- include('./partials/footer') %>
 </body>
