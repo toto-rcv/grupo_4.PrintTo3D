@@ -4,7 +4,7 @@
   "nombre": "Megen",
   "apellido": "Stobie",
   "email": "mstobie0@weather.com",
-  "contraseña": "wMT4sTr",
+  "password": "wMT4sTr",
   "categoria": 1,
   "imagen": "http://dummyimage.com/133x100.png/dddddd/000000"
  },
@@ -13,7 +13,7 @@
   "nombre": "Davie",
   "apellido": "Bedow",
   "email": "dbedow1@foxnews.com",
-  "contraseña": "9IVbTwpAf5et",
+  "password": "9IVbTwpAf5et",
   "categoria": 2,
   "imagen": "http://dummyimage.com/158x100.png/cc0000/ffffff"
  },
@@ -22,7 +22,7 @@
   "nombre": "Delano",
   "apellido": "Dun",
   "email": "ddun2@prnewswire.com",
-  "contraseña": "S828QXg",
+  "password": "S828QXg",
   "categoria": 3,
   "imagen": "http://dummyimage.com/100x100.png/ff4444/ffffff"
  },
@@ -31,7 +31,7 @@
   "nombre": "Jocelyne",
   "apellido": "Humphrys",
   "email": "jhumphrys3@123-reg.co.uk",
-  "contraseña": "xNHRbjpCtW",
+  "password": "xNHRbjpCtW",
   "categoria": 4,
   "imagen": "http://dummyimage.com/217x100.png/dddddd/000000"
  },
@@ -40,7 +40,7 @@
   "nombre": "Philippine",
   "apellido": "Colly",
   "email": "pcolly4@abc.net.au",
-  "contraseña": "aqkeaqcG6",
+  "password": "aqkeaqcG6",
   "categoria": 5,
   "imagen": "http://dummyimage.com/119x100.png/5fa2dd/ffffff"
  },
@@ -49,8 +49,17 @@
   "nombre": "Ryon",
   "apellido": "Ashington",
   "email": "rashington5@google.com.hk",
-  "contraseña": "vuxWYdInRnzm",
+  "password": "vuxWYdInRnzm",
   "categoria": 6,
   "imagen": "http://dummyimage.com/102x100.png/ff4444/ffffff"
+ },
+ {
+  "id": 7,
+  "nombre": "Ricardo Ariel",
+  "apellido": "Martinez",
+  "email": "ricardoarielmartinez@gmail.com",
+  "password": "$2a$10$rxus6gJG.rQR3.grIDvvZ.JsaoJUx/TscrHKD9M7lbNXfQZzeO/e6",
+  "categoria": 2,
+  "imagen": "default-image.jpg"
  }
 ]

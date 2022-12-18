@@ -39,13 +39,14 @@ const upload = multer ({storage})
 router.get('/recuperarContrasena', userController.contrasena)
 
 
+
 //REGISTER
 router.get('/register', userController.register)
 router.post("/register", upload.single('image'), validaciones, userController.userStore);
 
-
+//LOGIN
 router.get('/login', userController.login)
-router.post('/login', validacionesLogin, userController.loginUser)
+router.post('/login',validacionesLogin, userController.loginUser)
 
 
 module.exports = router;
