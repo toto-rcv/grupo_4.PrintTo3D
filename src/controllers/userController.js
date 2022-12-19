@@ -49,7 +49,9 @@ const userController = {
 	},
 	loginUser: (req, res) => {
 		let errores = validationResult(req);
-		let usuarioEncontrado = users.find((user) => user.email === req.body.email.trim());
+		let usuarioEncontrado = users.find(
+			(user) => user.email === req.body.email.trim()
+		);
 		if (typeof usuarioEncontrado == undefined && req.body.email !== "") {
 			errores.errors.push({
 				value: "",
@@ -66,17 +68,18 @@ const userController = {
 					location: "body",
 				});
 		}
-    console.log (errores)
 		if (errores.isEmpty()) {
-      req.session.usrUsuario = usuarioEncontrado.nombre
-      req.session.usrApellido = usuarioEncontrado.apellido      
-      req.session.usremail = usuarioEncontrado.email      
-      res.redirect("/",);
-    } 
-		else{
-      res.render("login", { errores: errores.mapped() });
-    } 
+			delete usuarioEncontrado.password;
+			req.session.userLogged = usuarioEncontrado;
+			res.redirect("/");
+		} else {
+			res.render("login", { errores: errores.mapped() });
+		}
 	},
+	logout:(req,res)=>{
+		req.session.destroy();
+		return res.redirect("/")
+	}
 };
 
 module.exports = userController;
