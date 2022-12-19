@@ -23,6 +23,25 @@ a{
     color: #0093d7;
 }
 
+main .colors-container .individual-colors-container .color {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+}
+
+main .colors-container {
+  display: flex;
+  flex-direction: row;
+  column-gap: 15px;
+  margin-top: 10px;
+}
+
+main .individual-colors-container {
+  display: flex;
+  flex-direction: row;
+  column-gap: 5px;
+}
+
 .forms-container {
   display: flex;
   flex-direction: column;

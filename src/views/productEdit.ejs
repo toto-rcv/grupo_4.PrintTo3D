@@ -41,11 +41,27 @@
                     <textarea class="contenedor-form__input" name="descripcion" id="descripcion" placeholder="Descripción" ><%= productToEdit.descripcion ? productToEdit.descripcion : "" %></textarea>
                     <textarea class="contenedor-form__input" name="descripcionAmpliada" id="descripcionAmpliada" placeholder="Descripción ampliada"><%= productToEdit.descripcionAmpliada ? productToEdit.descripcionAmpliada : "" %></textarea>
                     <input class="contenedor-form__input" type="number" name="precioProducto" id="precioProducto" placeholder="Precio del Producto" value="<%= productToEdit.price ? productToEdit.price : "" %>">   
-                    <input class="contenedor-form__input" type="file" id="image" name="image" >          
-                    <!-- Agregar colores de forma Automatica  -->
+                    <input class="contenedor-form__input" type="file" id="image" name="image">
+                    <label for="colores">Colores:</label>
+                    <div class="colors-container">
+                      <% for(let i=0; i<colores.length; i++) {%>
+                        <div class="individual-colors-container">
+                          <input type="checkbox" name="colores" id="<%= colores[i] %>" value="<%= colores[i] %>" <%= productToEdit.colores.find(color => color === colores[i]) !== undefined ? "checked" : "" %> style="height: 30px; width: 30px; background-color: #ffffff; font-size: 40px;">
+                          <label for="<%= colores[i] %>">
+                            <div class="color" style="background-color:<%= colores[i] %>;"></div>
+                          </label>
+                        </div>
+                      <% } %>
+                    </div>
                     <div class="contenedor-form__detalleProcucto--botones">
-                      <input class="button-center contenedor-form__input" type="button" name="descartar" id="button" value="Descartar">
-                      <input class="button-center contenedor-form__input" type="submit" name="guardar" id="button" value="Guardar">
+                      <div class="button-center contenedor-form__input">
+                        <a href="/productDetails/<%= productToEdit.id %>">
+                          <input type="button" name="descartar" id="button" value="Descartar" style="color: #ffffff;">
+                        </a>
+                      </div>
+                      <div class="button-center contenedor-form__input">
+                        <input type="submit" name="guardar" id="button" value="Guardar">
+                      </div>
                     </div>
                 </div>
             </div>

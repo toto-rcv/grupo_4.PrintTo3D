@@ -22,3 +22,10 @@
 6) Products/:id (PUT)
 7) Products/:id (DELETE)
 -Se agregan archivos products.json y users.json con datos de productos y usuarios.
+
+#11/12/2022
+-Se hizo la retrospectiva
+-Se distribuyeron tareas
+-Se completo tablero(TRELLO)
+-Se iniciaron las tareas
+-Se avanzo sobre la estructura de archivo de usuario

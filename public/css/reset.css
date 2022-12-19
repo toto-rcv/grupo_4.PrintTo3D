@@ -12,6 +12,10 @@
   display: revert;
 }
 
+input[type='checkbox'] {
+  all: revert !important;
+}
+
 /* Preferred box-sizing value */
 *,
 *::before,
