@@ -3,6 +3,7 @@ const router = express.Router();
 const userController = require('../controllers/userController')
 const multer = require("multer");
 const path = require("path");
+const guestMiddleware = require ('../middlewares/guestMiddleware')
 
 const { body } = require("express-validator");
 
@@ -46,6 +47,7 @@ router.post("/register", upload.single('image'), validaciones, userController.us
 
 //LOGIN
 router.get('/login', userController.login)
+router.get('/logout', userController.logout)
 router.post('/login',validacionesLogin, userController.loginUser)
 
 

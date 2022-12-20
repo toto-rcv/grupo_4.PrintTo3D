@@ -1,11 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const productController = require("../controllers/productController");
+const guestMiddleware = require("../middlewares/authMiddleware") 
 const multer = require("multer");
 const path = require("path");
 
 router.get('/busqueda', productController.busqueda);
-router.get('/category/:id', productController.category);
+router.get('/category/:id',guestMiddleware, productController.category);
 router.get('/kart', productController.kart);
 router.get('/productDetails/:id', productController.productDetails);
 const storage = multer.diskStorage({

@@ -49,8 +49,12 @@ const userController = {
 	},
 	loginUser: (req, res) => {
 		let errores = validationResult(req);
-		let usuarioEncontrado = users.find((user) => user.email === req.body.email.trim());
-		if (typeof usuarioEncontrado == undefined && req.body.email !== "") {
+		let usuarioEncontrado = users.find(
+			(user) => user.email === req.body.email.trim()
+			
+		);
+		let useraux = {...usuarioEncontrado}
+		if (typeof useraux === undefined && req.body.email !== "") {
 			errores.errors.push({
 				value: "",
 				msg: "El usuario no existe.",
@@ -58,7 +62,7 @@ const userController = {
 				location: "body",
 			});
 		} else {
-			if (!bcrypt.compareSync(req.body.password, usuarioEncontrado.password))
+			if (!bcrypt.compareSync(req.body.password, useraux.password))
 				errores.errors.push({
 					value: "",
 					msg: "La contraseña es incorrecta.",
@@ -66,17 +70,18 @@ const userController = {
 					location: "body",
 				});
 		}
-    console.log (errores)
 		if (errores.isEmpty()) {
-      req.session.usrUsuario = usuarioEncontrado.nombre
-      req.session.usrApellido = usuarioEncontrado.apellido      
-      req.session.usremail = usuarioEncontrado.email      
-      res.redirect("/",);
-    } 
-		else{
-      res.render("login", { errores: errores.mapped() });
-    } 
+			useraux.password = '';
+			req.session.userLogged = useraux;
+			res.redirect("/");
+		} else {
+			res.render("login", { errores: errores.mapped() });
+		}
 	},
+	logout:(req,res)=>{
+		req.session.destroy();
+		return res.redirect("/")
+	}
 };
 
 module.exports = userController;
