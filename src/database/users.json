@@ -61,5 +61,32 @@
   "password": "$2a$10$rxus6gJG.rQR3.grIDvvZ.JsaoJUx/TscrHKD9M7lbNXfQZzeO/e6",
   "categoria": 2,
   "imagen": "default-image.jpg"
+ },
+ {
+  "id": 8,
+  "nombre": "luis",
+  "apellido": "viloria",
+  "email": "boaviloria@gmail.com",
+  "password": "$2a$10$H/jbubClw/WRJxbA70m8SeoH9Pi7YDy9l7uQXpFt3EuYdm30Nnm2W",
+  "categoria": 2,
+  "imagen": "default-image.jpg"
+ },
+ {
+  "id": 9,
+  "nombre": "luis2",
+  "apellido": "viloria2",
+  "email": "boaviloria@gmail.com",
+  "password": "$2a$10$fuo6osDqi6xZr/yBzkCONedhe5CnUccqg2DgetMDTyre0AoJwauQi",
+  "categoria": 2,
+  "imagen": "user_image_1671496246051.jpg"
+ },
+ {
+  "id": 10,
+  "nombre": "luis3",
+  "apellido": "viloria3",
+  "email": "boaviloria@gmail.com",
+  "password": "$2a$10$uqzLp093JOPhdt8Hq.CB0uMmk9zXN7ArXLSIbc1kvfksaLJ2DgLg2",
+  "categoria": 2,
+  "imagen": "default-image.jpg"
  }
 ]

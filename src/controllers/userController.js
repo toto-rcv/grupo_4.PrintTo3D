@@ -16,10 +16,7 @@ const userController = {
 	},
 	userStore: (req, res) => {
 		let errores = validationResult(req);
-		if (
-			typeof users.find((user) => user.email == req.body.email) == undefined &&
-			req.body.email != ""
-		) {
+		if (typeof users.find((user) => user.email == req.body.email) != undefined) {
 			errores.errors.push({
 				value: "",
 				msg: "El usuario ya existe.",
@@ -51,7 +48,6 @@ const userController = {
 		let errores = validationResult(req);
 		let usuarioEncontrado = users.find(
 			(user) => user.email === req.body.email.trim()
-			
 		);
 		let useraux = {...usuarioEncontrado}
 		if (typeof useraux === undefined && req.body.email !== "") {
@@ -71,8 +67,11 @@ const userController = {
 				});
 		}
 		if (errores.isEmpty()) {
-			useraux.password = '';
+			delete useraux.password;
 			req.session.userLogged = useraux;
+			if(req.body.checkbox){
+				res.cookie('userEmail', useraux.email,{maxAge: 1000 * 60 * 60 * 24})
+			  }
 			res.redirect("/");
 		} else {
 			res.render("login", { errores: errores.mapped() });
@@ -80,6 +79,7 @@ const userController = {
 	},
 	logout:(req,res)=>{
 		req.session.destroy();
+		res.cookie('userEmail',null,{maxAge: -1});
 		return res.redirect("/")
 	}
 };

@@ -36,7 +36,8 @@
       <div class="box-articulos">
         <% for(let i=0; i<productosId.length; i++) { %>
           <section>
-            <img src="<%= "/img/" + productosId[i].image  %>" alt="imagen de producto">
+            <a href="/productDetails/<%= productosId[i].id %>" >
+              <img src="<%= "/img/" + productosId[i].image  %>" alt="imagen de producto">
             <article>
               <div class="box-precio">
                 <p class="precio"><%= productosId[i].price %>
@@ -47,6 +48,7 @@
                 <%= productosId[i].nombreProducto %>
               </h3>
             </article>
+            </a>
           </section>
           <% } %>
       </div>

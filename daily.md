@@ -29,3 +29,11 @@
 -Se completo tablero(TRELLO)
 -Se iniciaron las tareas
 -Se avanzo sobre la estructura de archivo de usuario
+
+#19/12/2022
+-Definimos Middleware
+-Configuramos session y cookies
+-Configuramos "Recuerdame"
+-Configuramos acceso con y sin login
+-No se entendio lo que se debe interpretar con este punto (Rutas accesibles solo sin login → redirigen al perfil)
+...se consultara en clase "No manejamos Pag de Perfil de Usuario hasta el momento"
