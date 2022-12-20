@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const path = require('path')
-const session = require('express-session');
+const session = require('express-session'); // para session
 
 /*Middelware*/
 app.use(express.static('public'))
@@ -10,6 +10,13 @@ app.use(methodOverride('_method'));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+// Configuro Session
+app.use (session({
+  secret:'Shh',
+  resave:false,
+  saveUninitialized:false
+}))
 
 app.listen(3000, ()=>{
   console.log('Servidor funcionando');

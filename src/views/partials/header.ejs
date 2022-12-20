@@ -1,38 +1,40 @@
 <header>
-  <section id="nav-section">
-    <a href="/">
-      <img src="/img/logo2.png" alt="LogoPrintTo3D" width="150px">
-    </a>
-    <nav>
-      <button type="button">
-        Button 1
-      </button>
-      <button type="button">
-        Button 2
-      </button>
-      <button type="button">
-        Button 3
-      </button>
-    </nav>
-  </section>
-  <section id="nav-mobile">
-    <button type="button">
-      <i class="fa-sharp fa-solid fa-bars"></i>
-    </button>
-  </section>
-  <section id="user-section">
-    <a href="/register">
-      <button type="button">
-        Crear cuenta
-      </button>
-    </a>
-    <a href="/login">
-      <button type="button">
-        Iniciar sesión
-      </button>
-    </a>
-    <button type="button">
-      <i class="fa-sharp fa-solid fa-circle-user"></i>
-    </button>
-  </section>
+	<section id="nav-section">
+		<a href="/">
+			<img src="/img/logo2.png" alt="LogoPrintTo3D" width="150px" />
+		</a>
+		<nav>
+			<button type="button">Button 1</button>
+			<button type="button">Button 2</button>
+			<button type="button">Button 3</button>
+		</nav>
+	</section>
+	<section id="nav-mobile">
+		<button type="button">
+			<i class="fa-sharp fa-solid fa-bars"></i>
+		</button>
+	</section>
+
+	<section id="user-section">
+		<% if(locals.userLogged) { %>
+		<button type="button"><%= userLogged.nombre %></button>
+		<% } else { %>
+		<a href="/register">
+			<button type="button">Crear cuenta</button>
+		</a>
+		<% }%>
+
+		<% if(locals.userLogged) { %>
+      <a href="/logout"><button type="button">Cerrar sesión</button></a>
+      <% } else { %>
+        <a href="/login">
+          <button type="button">Iniciar sesión</button>
+        </a>
+      <% }%>
+
+
+		<button type="button">
+			<i class="fa-sharp fa-solid fa-circle-user"></i>
+		</button>
+	</section>
 </header>

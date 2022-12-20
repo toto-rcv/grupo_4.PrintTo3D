@@ -7,7 +7,9 @@ const categories = JSON.parse(fs.readFileSync(categoryJson, 'utf-8'));
 
 const mainController = {
     index: (req, res) => {
-        res.render('home', {categories})
+        res.render('home', {
+            categories:categories,
+            userLogged:req.session.userLogged})
     },
 }
 
