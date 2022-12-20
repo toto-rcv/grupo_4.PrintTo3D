@@ -22,10 +22,13 @@ input {
     padding: 10px 5px;
     border: none;
     border-bottom: 1px solid black;
-    margin: 30px auto;
     background: white;
     color: black;
     border-radius: 10px;
+}
+
+.checkbox-container {
+    width: 100%;
 }
 
 form p {
@@ -35,7 +38,8 @@ form p {
 .contenedor-preguntas-login {
     display: flex;
     justify-content: space-evenly;
-    margin-right: 45px
+    width: 100%;
+    
 }
 
 .contenedor-preguntas-login a {
@@ -67,6 +71,10 @@ form p {
     margin: 100px auto;
     border: 4px #0093d7 solid;
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    align-items: center;
 }
 
 
@@ -79,6 +87,10 @@ form p {
     }
 
     input {
+        width: 75%;
+    }
+
+    .checkbox-container {
         width: 75%;
     }
 
@@ -100,6 +112,10 @@ form p {
     }
 
     input {
+        width: 95%;
+    }
+
+    .checkbox-container {
         width: 95%;
     }
 

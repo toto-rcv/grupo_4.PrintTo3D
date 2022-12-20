@@ -1,14 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const productController = require("../controllers/productController");
-const guestMiddleware = require("../middlewares/authMiddleware") 
+const authMiddleware = require("../middlewares/authMiddleware") 
 const multer = require("multer");
 const path = require("path");
 
-router.get('/busqueda', productController.busqueda);
-router.get('/category/:id',guestMiddleware, productController.category);
-router.get('/kart', productController.kart);
-router.get('/productDetails/:id', productController.productDetails);
 const storage = multer.diskStorage({
 	destination: function (req, file, cb) {
 		cb(null, "public/img/products");
@@ -20,26 +16,30 @@ const storage = multer.diskStorage({
 
 const upload = multer ({storage})
 
-
+/*router.get('/busqueda', productController.busqueda);
+router.get('/category/:id',guestMiddleware, productController.category);
+router.get('/kart', productController.kart);
+router.get('/productDetails/:id', productController.productDetails);*/
 
 router.get("/busqueda", productController.busqueda);
 
 /*** GET ALL PRODUCTS ***/
 router.get("/category", productController.category);
+router.get('/category/:id', productController.category);
 
 /*** CARRITO ***/
 router.get("/kart", productController.kart);
 
 /*** CREATE ONE PRODUCT ***/
-router.get("/products/create", productController.productAdd);
-router.post("/products/create",upload.single('image'), productController.productStore);
+router.get("/products/create", authMiddleware, productController.productAdd);
+router.post("/products/create", authMiddleware, upload.single('image'), productController.productStore);
 
 /*** EDIT ONE PRODUCT ***/
-router.get('/products/:id/edit', productController.edit);
-router.put('/products/:id', upload.single("image"), productController.update);
-router.delete('/products/:id', productController.delete);
+router.get('/products/:id/edit', authMiddleware, productController.edit);
+router.put('/products/:id', authMiddleware, upload.single("image"), productController.update);
+router.delete('/products/:id', authMiddleware, productController.delete);
 
 /*** GET ONE PRODUCT ***/
-router.get("/productDetails", productController.productDetails);
+router.get("/productDetails/:id", productController.productDetails);
 
 module.exports = router;

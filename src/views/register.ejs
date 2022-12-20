@@ -39,7 +39,7 @@
             </div>
             
             <div class="contenedor-input">
-                <input type="email" name="email" id="email" placeholder="Correo electronico">
+                <input type="email" name="email" id="email" placeholder="Correo electronico" required>
                 <% if(locals.errores) { %>
                   <% if(errores.email) { %>
                       <h4 class="text-error"><%= errores.email.msg %></h4>

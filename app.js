@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const session = require('express-session'); // para session
+const cookies = require("cookie-parser");
+const acceso = require('./src/middlewares/acceso');
 
 /*Middelware*/
 app.use(express.static('public'))
@@ -17,6 +19,11 @@ app.use (session({
   resave:false,
   saveUninitialized:false
 }))
+
+app.use(cookies());
+
+//Middleware para controlar si el user esta logueado o no.
+app.use(acceso);
 
 app.listen(3000, ()=>{
   console.log('Servidor funcionando');

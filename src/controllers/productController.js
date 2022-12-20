@@ -76,6 +76,7 @@ const productController = {
 		res.redirect('/');
     },
     productDetails: (req, res) => {
+      console.log(req.params.id)
       let idProduct = req.params.id
       let productoEncontrado = products.find(product => product.id == idProduct)
       res.render('product', {productoEncontrado})
