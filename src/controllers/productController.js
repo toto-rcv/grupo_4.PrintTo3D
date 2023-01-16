@@ -10,14 +10,26 @@ const coloresJson = path.join(__dirname, '../database/colores.json')
 const colores = JSON.parse(fs.readFileSync(coloresJson, 'utf-8'))
 
 
+/*DB*/
+const db = require('../database/models');
+const sequelize = db.sequelize;
+/*DB*/
+
 const productController = {
     busqueda: (req, res) =>{
         res.render('busqueda')
     },
     category: (req, res) =>{
-        let id = req.params.id;
-        let productosId = products.filter(producto => producto.idCategory == id)
+      let id = req.params.id;
+      db.Products.findAll({
+        where: {
+          idcategory:  id 
+        }})
+      .then(productosId => {
+        console.log(productosId)
         res.render('category', {productosId})
+      })
+
     },
     edit: (req, res) => {
 		let id = req.params.id
@@ -58,7 +70,12 @@ const productController = {
         res.render('kart')
     },
     productAdd: (req, res) =>{
-        res.render('productAdd',{categories, colores})
+        let ProductCategory =  db.ProductCategory.findAll()
+        let Colors = db.Colors.findAll()
+        Promise.all([ProductCategory,Colors]).then(
+          ([ProductCategory,Colors]) =>{
+            res.render('productAdd', {categories:ProductCategory,colores:Colors})
+          })
     },
     productStore: (req, res) =>{
       let newProduct = {
@@ -76,10 +93,23 @@ const productController = {
 		res.redirect('/');
     },
     productDetails: (req, res) => {
-      console.log(req.params.id)
       let idProduct = req.params.id
-      let productoEncontrado = products.find(product => product.id == idProduct)
-      res.render('product', {productoEncontrado})
+      let productoEncontrado = db.Products.findByPk(idProduct)
+      let colors = db.ProductColors.findAll({
+        include:'Colores',
+        where: {
+          idproduct:idProduct 
+        }})
+
+      Promise.all([productoEncontrado,colors]).then(
+          ([productoEncontrado,colors]) =>{
+            let filterColor=[]
+            colors.forEach(element => {
+              filterColor.push(element.Colores)
+            });
+            filterColor = filterColor.flat()
+            res.render('product', {productoEncontrado,colors:filterColor})
+          })
     }
 }
 

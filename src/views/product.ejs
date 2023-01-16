@@ -19,20 +19,20 @@
       <section id="product-detail">
         <img src="<%= "/img/" + productoEncontrado.image %>" alt="product-image" width="200">
         <div class="details-info">
-          <h1><%= productoEncontrado.nombreProducto %></h1>
+          <h1><%= productoEncontrado.name %></h1>
           <div class="price-container">
             <p>Precio:</p>
             <span><%= "$" + productoEncontrado.price  %></span>
           </div>
-          <p class="mini-description"><%= productoEncontrado.descripcion %></p>
+          <p class="mini-description"><%= productoEncontrado.shortdescription %></p>
         </div>
       </section>
       <section id="product-actions">
         <div class="action-container">
           <div class="colors-container">
             <p>Colores:</p>
-            <% for(let i=0; i<productoEncontrado.colores.length; i++) {%>
-              <div class="color" style="background-color:<%= productoEncontrado.colores[i] %>">
+            <% for(let i=0; i<colors.length; i++) {%>
+              <div class="color" style="background-color: <%= colors[i].color %>">
               </div>
             <% } %>
           </div>
@@ -47,7 +47,7 @@
       </section>
       <section id="additional-product-info">
         <h4>Descripción:</h4>
-        <p><%= productoEncontrado.descripcionAmpliada %></p>
+        <p><%= productoEncontrado.longdescription %></p>
       </section>
     </main>
     <%- include('./partials/footer') %>
