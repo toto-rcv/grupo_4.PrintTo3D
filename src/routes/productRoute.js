@@ -26,11 +26,11 @@ router.get('/category/:id', productController.category);
 router.get("/kart", productController.kart);
 
 /*** CREATE ONE PRODUCT ***/
-router.get("/products/create", productController.productAdd);
+router.get("/products/create", authMiddleware, productController.productAdd);
 router.post("/products/create", authMiddleware, upload.single('image'), productController.productStore);
 
 /*** EDIT ONE PRODUCT ***/
-router.get('/products/:id/edit', authMiddleware, productController.edit);
+router.get('/products/:id/edit',  productController.edit);
 router.put('/products/:id', authMiddleware, upload.single("image"), productController.update);
 router.delete('/products/:id', authMiddleware, productController.delete);
 
