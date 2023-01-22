@@ -10,19 +10,76 @@ const coloresJson = path.join(__dirname, '../database/colores.json')
 const colores = JSON.parse(fs.readFileSync(coloresJson, 'utf-8'))
 
 
+/*DB*/
+const db = require('../database/models');
+const sequelize = db.sequelize;
+/*DB*/
+
 const productController = {
     busqueda: (req, res) =>{
         res.render('busqueda')
     },
     category: (req, res) =>{
-        let id = req.params.id;
-        let productosId = products.filter(producto => producto.idCategory == id)
+      let id = req.params.id;
+      db.Products.findAll({
+        where: {
+          idcategory:  id 
+        }})
+      .then(productosId => {
+        console.log(productosId)
         res.render('category', {productosId})
+      })
+
+    },
+    kart: (req, res) =>{
+        res.render('kart')
+    },
+    productAdd: (req, res) =>{
+        let ProductCategory =  db.ProductCategory.findAll()
+        let Colors = db.Colors.findAll()
+        Promise.all([ProductCategory,Colors]).then(
+          ([ProductCategory,Colors]) =>{
+            res.render('productAdd', {categories:ProductCategory,colores:Colors})
+          })
+    },
+    productDetails: (req, res) => {
+      let idProduct = req.params.id
+      let productoEncontrado = db.Products.findByPk(idProduct)
+      let colors = db.ProductColors.findAll({
+        include:'Colores',
+        where: {
+          idproduct:idProduct 
+        }})
+
+      Promise.all([productoEncontrado,colors]).then(
+          ([productoEncontrado,colors]) =>{
+            let filterColor=[]
+            colors.forEach(element => {
+              filterColor.push(element.Colores)
+            });
+            filterColor = filterColor.flat()
+            res.render('product', {productoEncontrado,colors:filterColor})
+          })
     },
     edit: (req, res) => {
-		let id = req.params.id
-		let productToEdit = products.find(product => product.id == id)
-		res.render('productEdit', {productToEdit,categories, colores})
+    let id = req.params.id
+    let productToEdit = db.Products.findByPk(id)
+    let categories =  db.ProductCategory.findAll()
+    let colors = db.Colors.findAll()
+    let coloresSeleccionados = db.ProductColors.findAll({
+      include:'Colores',
+      where: {
+        idproduct:req.params.id
+      }})
+    Promise.all([productToEdit,categories,colors,coloresSeleccionados]).then(
+        ([productToEdit,categories,colors,coloresSeleccionados]) =>{
+          let filterColor=[]
+          coloresSeleccionados.forEach(element => {
+            filterColor.push(element.Colores)
+          });
+          filterColor = filterColor.flat()   
+          res.render('productEdit', {productToEdit,categories, colores:colors,filterColor})
+        })
     },
     update: (req, res) => {
       let colorsArr = [req.body.colores]
@@ -48,18 +105,6 @@ const productController = {
 		  fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '))
 		  res.redirect('/')
 	  },
-    delete: (req, res) => {
-		  let id = req.params.id
-		  let newProducts = products.filter(product => product.id != id)
-		  fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '))
-		  res.redirect('/')
-    },
-    kart: (req, res) =>{
-        res.render('kart')
-    },
-    productAdd: (req, res) =>{
-        res.render('productAdd',{categories, colores})
-    },
     productStore: (req, res) =>{
       let newProduct = {
 			id: products[products.length - 1].id + 1,
@@ -75,11 +120,11 @@ const productController = {
 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
 		res.redirect('/');
     },
-    productDetails: (req, res) => {
-      console.log(req.params.id)
-      let idProduct = req.params.id
-      let productoEncontrado = products.find(product => product.id == idProduct)
-      res.render('product', {productoEncontrado})
+    delete: (req, res) => {
+		  let id = req.params.id
+		  let newProducts = products.filter(product => product.id != id)
+		  fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '))
+		  res.redirect('/')
     }
 }
 

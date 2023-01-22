@@ -39,16 +39,16 @@
             <div class="overlay-categorie"></div>
             <article>
               <h3>
-                <%= categories[i].nombreCategoria %>
+                <%= categories[i].name %>
               </h3>
-              <p><%= categories[i].descripcion%></p>
+              <p><%= categories[i].description%></p>
               <a href="/category/<%= categories[i].id %>">
                 <button type="button">
                   Ver más
                 </button>
               </a>
             </article>
-            <img src=" <%= "/img/" + categories[i].imagen %>" alt="" width="500px">
+            <img src=" <%= "/img/" + categories[i].image %>" alt="" width="500px">
           </div>
           <% } %>
       </section>

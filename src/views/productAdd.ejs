@@ -30,7 +30,7 @@
                     <input class="contenedor-form__input" type="text" name="nombreProducto" id="nombreProducto" placeholder="Nombre del Producto">
                     <select class="contenedor-form__input" name="idCategory" id="category">
                       <% for(let i=0; i<categories.length; i++) {%>
-                        <option value="<%= categories[i].id %>"><%= categories[i].nombreCategoria %></option>
+                        <option value="<%= categories[i].id %>"><%= categories[i].name %></option>
                       <% } %>
                     </select>
                     <textarea class="contenedor-form__input" name="descripcion" id="descripcion" placeholder="Descripción"></textarea>
@@ -41,9 +41,9 @@
                     <div class="colors-container">
                       <% for(let i=0; i<colores.length; i++) {%>
                         <div class="individual-colors-container">
-                          <input type="checkbox" name="colores" id="<%= colores[i] %>" value="<%= colores[i] %>" style="height: 30px; width: 30px; background-color: #ffffff; font-size: 40px;">
+                          <input type="checkbox" name="colores" id="<%= colores[i] %>" value="<%= colores[i].color %>" style="height: 30px; width: 30px; background-color: #ffffff; font-size: 40px;">
                           <label for="<%= colores[i] %>">
-                            <div class="color" style="background-color:<%= colores[i] %>;"></div>
+                            <div class="color" style="background-color:<%= colores[i].color %>;"></div>
                           </label>
                         </div>
                       <% } %>

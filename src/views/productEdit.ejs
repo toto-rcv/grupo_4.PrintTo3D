@@ -31,24 +31,24 @@
                 </div>
                 -->
                 <div class="contenedor-form__detalleProcucto">
-                    <input class="contenedor-form__input" type="text" name="nombreProducto" id="nombreProducto" placeholder="Nombre del Producto" value="<%= productToEdit.nombreProducto ? productToEdit.nombreProducto : "" %>">
+                    <input class="contenedor-form__input" type="text" name="nombreProducto" id="nombreProducto" placeholder="Nombre del Producto" value="<%= productToEdit.name ? productToEdit.name : "" %>">
                     <!-- Agregar Categoria de forma Automatica  -->
                     <select class="contenedor-form__input" name="idCategory" id="category" >  
                       <% for(let i=0; i<categories.length; i++) {%>
-                        <option value="<%= categories[i].id %>" <%= productToEdit.idCategory == categories[i].id ? "selected" : "" %>><%= categories[i].nombreCategoria %></option>
+                        <option value="<%= categories[i].id %>" <%= productToEdit.idcategory == categories[i].id ? "selected" : "" %>><%= categories[i].name %></option>
                       <% } %>
                     </select>
-                    <textarea class="contenedor-form__input" name="descripcion" id="descripcion" placeholder="Descripción" ><%= productToEdit.descripcion ? productToEdit.descripcion : "" %></textarea>
-                    <textarea class="contenedor-form__input" name="descripcionAmpliada" id="descripcionAmpliada" placeholder="Descripción ampliada"><%= productToEdit.descripcionAmpliada ? productToEdit.descripcionAmpliada : "" %></textarea>
+                    <textarea class="contenedor-form__input" name="descripcion" id="descripcion" placeholder="Descripción" ><%= productToEdit.shortdescription ? productToEdit.shortdescription : "" %></textarea>
+                    <textarea class="contenedor-form__input" name="descripcionAmpliada" id="descripcionAmpliada" placeholder="Descripción ampliada"><%= productToEdit.longdescription ? productToEdit.longdescription : "" %></textarea>
                     <input class="contenedor-form__input" type="number" name="precioProducto" id="precioProducto" placeholder="Precio del Producto" value="<%= productToEdit.price ? productToEdit.price : "" %>">   
                     <input class="contenedor-form__input" type="file" id="image" name="image">
                     <label for="colores">Colores:</label>
                     <div class="colors-container">
                       <% for(let i=0; i<colores.length; i++) {%>
                         <div class="individual-colors-container">
-                          <input type="checkbox" name="colores" id="<%= colores[i] %>" value="<%= colores[i] %>" <%= productToEdit.colores.find(color => color === colores[i]) !== undefined ? "checked" : "" %> style="height: 30px; width: 30px; background-color: #ffffff; font-size: 40px;">
-                          <label for="<%= colores[i] %>">
-                            <div class="color" style="background-color:<%= colores[i] %>;"></div>
+                          <input type="checkbox" name="colores" id="<%= colores[i].color %>" value="<%= colores[i].color %>" <%=filterColor.find(color => color.color == colores[i].color) !== undefined ? "checked" : "" %> style="height: 30px; width: 30px; background-color: #ffffff; font-size: 40px;">
+                          <label for="<%= colores[i].color %>">
+                            <div class="color" style="background-color:<%= colores[i].color %>;"></div>
                           </label>
                         </div>
                       <% } %>
