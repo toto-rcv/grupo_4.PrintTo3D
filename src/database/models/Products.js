@@ -9,10 +9,10 @@ module.exports = (sequelize, dataTypes) => {
         name: {
             type: dataTypes.STRING
         },
-        shortdescription: {
+        short_description: {
             type: dataTypes.STRING
         },
-        longdescription: {
+        long_description: {
             type: dataTypes.STRING
         },
         image: {
@@ -21,7 +21,7 @@ module.exports = (sequelize, dataTypes) => {
         price: {
             type: dataTypes.FLOAT
         },
-        idcategory: {
+        id_category: {
             type: dataTypes.INTEGER,
         },
     };

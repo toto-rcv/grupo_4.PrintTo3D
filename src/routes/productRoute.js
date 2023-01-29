@@ -26,13 +26,13 @@ router.get('/category/:id', productController.category);
 router.get("/kart", productController.kart);
 
 /*** CREATE ONE PRODUCT ***/
-router.get("/products/create", authMiddleware, productController.productAdd);
-router.post("/products/create", authMiddleware, upload.single('image'), productController.productStore);
+router.get("/products/create", productController.productAdd);
+router.post("/products/create", upload.single('image'), productController.productStore);
 
 /*** EDIT ONE PRODUCT ***/
-router.get('/products/:id/edit',authMiddleware,  productController.edit);
-router.put('/products/:id', authMiddleware, upload.single("image"), productController.update);
-router.delete('/products/:id', authMiddleware, productController.delete);
+router.get('/products/:id/edit',  productController.edit);
+router.put('/products/:id', upload.single("image"), productController.update);
+router.delete('/products/:id', productController.delete);
 
 /*** GET ONE PRODUCT ***/
 router.get("/productDetails/:id", productController.productDetails);

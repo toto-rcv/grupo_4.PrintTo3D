@@ -6,15 +6,15 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        idproduct: {
+        id_product: {
             type: dataTypes.INTEGER,
         },
-        idcolor: {
+        id_color: {
             type: dataTypes.STRING
         }
     };
     let config = {
-        tableName: 'productcolors',
+        tableName: 'productscolors',
         timestamps: false
     };
     const ProductColors = sequelize.define(alias, cols, config)
@@ -24,7 +24,8 @@ module.exports = (sequelize, dataTypes) => {
         ProductColors.hasMany (models.Colors,{
             as: 'Colores',
             foreignKey:'id',
-            otherKey:'idproduct',
+            otherKey:'id_product',
+            otherKey:'id_color',
             timestamps: false
         })
     }

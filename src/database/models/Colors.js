@@ -6,7 +6,7 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        color: {
+        hexadecimal: {
             type: dataTypes.STRING
         }
     };
@@ -15,9 +15,6 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     };
     const Colors = sequelize.define(alias, cols, config)
-
- 
-
-   
+    
     return Colors
 }

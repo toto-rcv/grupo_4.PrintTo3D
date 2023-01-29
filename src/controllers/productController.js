@@ -24,7 +24,7 @@ const productController = {
     let id = req.params.id;
     db.Products.findAll({
       where: {
-        idcategory: id
+        id_category: id
       }
     })
       .then(productosId => {
@@ -50,18 +50,19 @@ const productController = {
     let colors = db.ProductColors.findAll({
       include: 'Colores',
       where: {
-        idproduct: idProduct
+        id_product: idProduct
       }
     })
-
     Promise.all([productoEncontrado, colors]).then(
       ([productoEncontrado, colors]) => {
         let filterColor = []
         colors.forEach(element => {
-          filterColor.push(element.Colores)
+          filterColor.push(element.hexadecimal)
+          console.log(element)
         });
         filterColor = filterColor.flat()
-        res.render('product', { productoEncontrado, colors: filterColor })
+        res.send(colors)
+        //res.render('product', { productoEncontrado, colors: filterColor })
       })
   },
   edit: (req, res) => {
@@ -72,14 +73,14 @@ const productController = {
     let coloresSeleccionados = db.ProductColors.findAll({
       include: 'Colores',
       where: {
-        idproduct: req.params.id
+        id_product: req.params.id
       }
     })
     Promise.all([productToEdit, categories, colors, coloresSeleccionados]).then(
       ([productToEdit, categories, colors, coloresSeleccionados]) => {
         let filterColor = []
         coloresSeleccionados.forEach(element => {
-          filterColor.push(element.Colores)
+          filterColor.push(element.id_color)
         });
         filterColor = filterColor.flat()
         res.render('productEdit', { productToEdit, categories, colores: colors, filterColor })
@@ -91,7 +92,7 @@ const productController = {
     const id = req.params.id
     const { nombreProducto, descripcion, descripcionAmpliada, idCategory, precioProducto } = req.body
     let productToEdit = {
-      id: productToEdit.id,
+      id: id,
       name: nombreProducto,
       short_description: descripcion,
       long_description: descripcionAmpliada,
@@ -109,26 +110,29 @@ const productController = {
     db.ProductColors.destroy({
       where: { id_product: id }
     })
-    const newProductColors = colorsArr.map(elemento => {
+      .catch(error => res.send(error))
+    const newProductColors = colorsArr.map(color => {
       return {
         id_product: id,
-        id_color: elemento
+        id_color: color
       }
     })
-    db.ProductColors.bulkCreate(newProductColors)
-      .then(() => res.redirect('/'))
-      .catch(error => res.send(error))
+    console.log(newProductColors)
+    newProductColors.forEach(relation => {
+      db.ProductColors.create(relation)
+        .catch(error => res.send(error))
+    })
+    res.redirect('/')
   },
   productStore: (req, res) => {
     let newProduct = {
       id: products[products.length - 1].id + 1,
-      nombreProducto: req.body.nombreProducto,
-      descripcion: req.body.descripcion,
-      descripcionAmpliada: req.body.descripcionAmpliada,
+      name: req.body.name,
+      short_description: req.body.short_description,
+      long_description: req.body.long_description,
       image: req.file ? req.file.filename : 'default-image.jpg',
-      idCategory: req.body.idCategory,
-      colores: req.body.colores,
-      price: req.body.precioProducto
+      id_category: req.body.id_category,
+      price: req.body.price
     }
     products.push(newProduct)
     fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
