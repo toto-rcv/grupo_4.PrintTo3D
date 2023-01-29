@@ -38,17 +38,17 @@
                         <option value="<%= categories[i].id %>" <%= productToEdit.idcategory == categories[i].id ? "selected" : "" %>><%= categories[i].name %></option>
                       <% } %>
                     </select>
-                    <textarea class="contenedor-form__input" name="descripcion" id="descripcion" placeholder="Descripción" ><%= productToEdit.shortdescription ? productToEdit.shortdescription : "" %></textarea>
-                    <textarea class="contenedor-form__input" name="descripcionAmpliada" id="descripcionAmpliada" placeholder="Descripción ampliada"><%= productToEdit.longdescription ? productToEdit.longdescription : "" %></textarea>
+                    <textarea class="contenedor-form__input" name="descripcion" id="descripcion" placeholder="Descripción" ><%= productToEdit.short_description ? productToEdit.short_description : "" %></textarea>
+                    <textarea class="contenedor-form__input" name="descripcionAmpliada" id="descripcionAmpliada" placeholder="Descripción ampliada"><%= productToEdit.long_description ? productToEdit.long_description : "" %></textarea>
                     <input class="contenedor-form__input" type="number" name="precioProducto" id="precioProducto" placeholder="Precio del Producto" value="<%= productToEdit.price ? productToEdit.price : "" %>">   
                     <input class="contenedor-form__input" type="file" id="image" name="image">
                     <label for="colores">Colores:</label>
                     <div class="colors-container">
                       <% for(let i=0; i<colores.length; i++) {%>
                         <div class="individual-colors-container">
-                          <input type="checkbox" name="colores" id="<%= colores[i].color %>" value="<%= colores[i].color %>" <%=filterColor.find(color => color.color == colores[i].color) !== undefined ? "checked" : "" %> style="height: 30px; width: 30px; background-color: #ffffff; font-size: 40px;">
-                          <label for="<%= colores[i].color %>">
-                            <div class="color" style="background-color:<%= colores[i].color %>;"></div>
+                          <input type="checkbox" name="colores" id="<%= colores[i].id %>" value="<%= colores[i].id %>" <%=filterColor.find(color => color == colores[i].id) !== undefined ? "checked" : "" %> style="height: 30px; width: 30px; background-color: #ffffff; font-size: 40px;">
+                          <label for="<%= colores[i].id %>">
+                            <div class="color" style="background-color:<%= colores[i].hexadecimal %>;"></div>
                           </label>
                         </div>
                       <% } %>
