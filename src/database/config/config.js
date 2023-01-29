@@ -2,7 +2,7 @@ module.exports ={
   "development": {
     "username": "root",
     "password": "",
-    "database": "dbprint3d",
+    "database": "printto3d_3000",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
