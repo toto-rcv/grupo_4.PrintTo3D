@@ -17,7 +17,7 @@
 
 	<section id="user-section">
 		<% if(locals.userLogged) { %>
-		<button type="button"><%= userLogged.nombre %></button>
+		<button type="button"><%= userLogged.name %></button>
 		<% } else { %>
 		<a href="/register">
 			<button type="button">Crear cuenta</button>
