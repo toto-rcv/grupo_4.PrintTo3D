@@ -10,7 +10,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
         },
         id_color: {
-            type: dataTypes.STRING
+            type: dataTypes.INTEGER
         }
     };
     let config = {
@@ -21,12 +21,12 @@ module.exports = (sequelize, dataTypes) => {
 
     
     ProductColors.associate  = function (models){
-        ProductColors.hasMany (models.Colors,{
+        ProductColors.hasMany(models.Colors,{
             as: 'Colores',
             foreignKey:'id',
-            otherKey:'id_product',
+            sourceKey: 'id_color',
             timestamps: false
         })
-    }
+    }    
     return ProductColors
 }
