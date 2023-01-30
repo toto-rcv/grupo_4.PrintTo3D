@@ -25,7 +25,6 @@ module.exports = (sequelize, dataTypes) => {
             as: 'Colores',
             foreignKey:'id',
             otherKey:'id_product',
-            otherKey:'id_color',
             timestamps: false
         })
     }

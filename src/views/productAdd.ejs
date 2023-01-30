@@ -27,23 +27,23 @@
                 </div>
                 -->
                 <div class="contenedor-form__detalleProcucto">
-                    <input class="contenedor-form__input" type="text" name="nombreProducto" id="nombreProducto" placeholder="Nombre del Producto">
-                    <select class="contenedor-form__input" name="idCategory" id="category">
+                    <input class="contenedor-form__input" type="text" name="name" id="name" placeholder="Nombre del Producto">
+                    <select class="contenedor-form__input" name="id_category" id="id_category">
                       <% for(let i=0; i<categories.length; i++) {%>
                         <option value="<%= categories[i].id %>"><%= categories[i].name %></option>
                       <% } %>
                     </select>
-                    <textarea class="contenedor-form__input" name="descripcion" id="descripcion" placeholder="Descripción"></textarea>
-                    <textarea class="contenedor-form__input" name="descripcionAmpliada" id="descripcionAmpliada" placeholder="Descripción ampliada"></textarea>
-                    <input class="contenedor-form__input" type="number" name="precioProducto" id="precioProducto" placeholder="Precio del Producto">
+                    <textarea class="contenedor-form__input" name="short_description" id="short_description" placeholder="Descripción"></textarea>
+                    <textarea class="contenedor-form__input" name="long_description" id="long_description" placeholder="Descripción ampliada"></textarea>
+                    <input class="contenedor-form__input" type="number" name="price" id="price" placeholder="Precio del Producto">
                     <input class="contenedor-form__input" type="file" id="image" name="image">
                     <label for="colores">Colores:</label>
                     <div class="colors-container">
                       <% for(let i=0; i<colores.length; i++) {%>
                         <div class="individual-colors-container">
-                          <input type="checkbox" name="colores" id="<%= colores[i] %>" value="<%= colores[i].color %>" style="height: 30px; width: 30px; background-color: #ffffff; font-size: 40px;">
-                          <label for="<%= colores[i] %>">
-                            <div class="color" style="background-color:<%= colores[i].color %>;"></div>
+                          <input type="checkbox" name="colores" id="<%= colores[i].id %>" value="<%= colores[i].id %>" style="height: 30px; width: 30px; background-color: #ffffff; font-size: 40px;">
+                          <label for="<%= colores[i].id %>">
+                            <div class="color" style="background-color:<%= colores[i].hexadecimal %>;"></div>
                           </label>
                         </div>
                       <% } %>
