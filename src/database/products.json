@@ -106,5 +106,9 @@
    "#F30000"
   ],
   "price": "666666"
+ },
+ {
+  "id": 10,
+  "image": "default-image.jpg"
  }
 ]

@@ -44,25 +44,25 @@ const productController = {
         res.render('productAdd', { categories: ProductCategory, colores: Colors })
       })
   },
-  productDetails: (req, res) => {
+  productDetails: async (req, res) => {
     let idProduct = req.params.id
     let productoEncontrado = db.Products.findByPk(idProduct)
-    let colors = db.ProductColors.findAll({
-      include: 'Colores',
+    let colors = await db.ProductColors.findAll({
       where: {
         id_product: idProduct
       }
     })
-    Promise.all([productoEncontrado, colors]).then(
-      ([productoEncontrado, colors]) => {
-        let filterColor = []
-        colors.forEach(element => {
-          filterColor.push(element.hexadecimal)
-          console.log(element)
-        });
-        filterColor = filterColor.flat()
-        res.send(colors)
-        //res.render('product', { productoEncontrado, colors: filterColor })
+    let colorsHexa = await Promise.all(
+    colors.map
+    (async color => {
+        return db.Colors.findByPk(color.id_color).then((rsp) => {
+          return rsp.hexadecimal
+        })
+      })
+    )
+    Promise.all([productoEncontrado]).then(
+      ([productoEncontrado]) => {
+        res.render('product', { productoEncontrado, colors: colorsHexa })
       })
   },
   edit: (req, res) => {
@@ -126,7 +126,6 @@ const productController = {
   },
   productStore: (req, res) => {
     let newProduct = {
-      id: products[products.length - 1].id + 1,
       name: req.body.name,
       short_description: req.body.short_description,
       long_description: req.body.long_description,
@@ -134,8 +133,8 @@ const productController = {
       id_category: req.body.id_category,
       price: req.body.price
     }
-    products.push(newProduct)
-    fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
+    db.Products.create(newProduct)
+      .catch(error => res.send(error))
     res.redirect('/');
   },
   delete: (req, res) => {
