@@ -6,10 +6,10 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        firstname: {
+        name: {
             type: dataTypes.STRING
         },
-        lastname: {
+        apellido: {
             type: dataTypes.STRING
         },
         email: {
@@ -21,7 +21,7 @@ module.exports = (sequelize, dataTypes) => {
         password: {
             type: dataTypes.STRING
         },
-        category: {
+        id_level: {
             type: dataTypes.INTEGER,
         },
     };
