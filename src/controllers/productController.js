@@ -10,6 +10,8 @@ const categories = JSON.parse(fs.readFileSync(categoryJson, "utf-8"));
 const coloresJson = path.join(__dirname, "../database/colores.json");
 const colores = JSON.parse(fs.readFileSync(coloresJson, "utf-8"));
 
+const { validationResult } = require("express-validator");
+
 /*DB*/
 const db = require("../database/models");
 const sequelize = db.sequelize;
@@ -135,6 +137,7 @@ const productController = {
 	},
 
 	productStore: (req, res) => {
+	let errores = validationResult(req);	
     let colorsArr = [req.body.colores]; 
 		colorsArr = colorsArr.flat();
 		let newProduct = {
@@ -145,7 +148,7 @@ const productController = {
 			id_category: req.body.id_category,
 			price: req.body.price,
 		};
-
+	if (!errores){
 		db.Products.create(newProduct)
       .then ((createProduct => {
         const newProductColors = colorsArr.map((color) => {
@@ -159,6 +162,18 @@ const productController = {
         });
       }))
       res.redirect("/")
+	}else{
+		let ProductCategory = db.ProductCategory.findAll();
+		let Colors = db.Colors.findAll();
+		Promise.all([ProductCategory, Colors]).then(([ProductCategory, Colors]) => {
+			res.render("productAdd", {
+				categories: ProductCategory,
+				colores: Colors,
+				errores: errores.mapped()
+			});
+		});
+	}
+	
 	},
 
 	delete: (req, res) => {

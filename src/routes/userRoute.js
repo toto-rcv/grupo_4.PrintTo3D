@@ -10,8 +10,11 @@ const { body } = require("express-validator");
 
 const validaciones = [
     body('nombre').notEmpty().withMessage('Tiene que ingresar un Nombre'),
+	body('nombre').isLength({ min: 2 }).withMessage('El Nombre debe tener mas de 2 caracteres'),
     body('apellido').notEmpty().withMessage('Tiene que ingresar un Apellido'),
+	body('apellido').isLength({ min: 2 }).withMessage('El Apellido debe tener mas de 2 caracteres'),
     body('email').notEmpty().withMessage('Tiene que ingresar un email'),
+	body('email').isEmail().withMessage('Tiene que ingresar un email valido'),
     body('confirmPassword').custom(async (confirmPassword, {req}) => {
 		const password = req.body.password
 		if(password !== confirmPassword){
@@ -33,7 +36,15 @@ const storage = multer.diskStorage({
 	},
 	filename: function (req, file, cb) {
 		cb(null,"user_" + file.fieldname + "_" + Date.now() + path.extname(file.originalname));
-	},
+
+	},fileFilter: function (req, file, cb) {
+        if (!file.originalname.match(/\.(png|jpg|jpeg|gif)$/)) { 
+           // upload only png and jpg format
+           return cb(new Error('No es una imagen con formato valido'))
+    	}
+		cb(undefined, true)
+	}
+
 });
 
 const upload = multer ({storage})
