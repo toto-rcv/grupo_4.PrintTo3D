@@ -61,6 +61,9 @@
 
             <div class="contenedor-input">
                 <input class="contenedor-form__input" type="file" id="image" name="image">
+                <% if(locals.errores && errores.imageFormat) { %>
+                    <h4 class="text-error"><%= errores.imageFormat.msg %></h4>
+                <% } %>
             </div>
             <div class="contenedor-button-center" >
                 <input class="button-center" type="submit" name="button" id="button" value="Crear">
