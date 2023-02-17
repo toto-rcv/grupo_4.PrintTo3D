@@ -53,3 +53,23 @@ Seguir manteniendo la comunicación por las diferentes vías, mensajes directos,
 
 ##Empezar a hacer:
 Dejar un horario fijo de reuniones para el equipo
+
+
+#31/1/2023
+
+#Starfish.
+
+##Más de:
+reuniones diarias y de fines de semana
+
+##Menos de: 
+Dejar cosas a ultimo momento
+
+##Dejar de hacer:
+Posponer reuniones
+
+##Seguir haciendo: 
+Reuniones grupales y trabajo en equipo 
+
+##Empezar a hacer:
+Mejorar el CSS del proyecto

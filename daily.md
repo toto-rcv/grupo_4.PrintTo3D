@@ -37,3 +37,9 @@
 -Configuramos acceso con y sin login
 -No se entendio lo que se debe interpretar con este punto (Rutas accesibles solo sin login → redirigen al perfil)
 ...se consultara en clase "No manejamos Pag de Perfil de Usuario hasta el momento"
+
+#31/1/2023
+-Nos reunimos para seguir avanzando y resolver errores en nuestro proyecto 
+-Nos costo trabajar en workbench con la base de datos
+-Nos justamos a aclarar dudas y planificar el sprint 7 
+
