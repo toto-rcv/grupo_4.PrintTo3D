@@ -148,7 +148,7 @@ const productController = {
 			id_category: req.body.id_category,
 			price: req.body.price,
 		};
-	if (!errores){
+	if (errores.isEmpty()){
 		db.Products.create(newProduct)
       .then ((createProduct => {
         const newProductColors = colorsArr.map((color) => {
