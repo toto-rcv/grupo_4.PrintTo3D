@@ -25,6 +25,7 @@
             <div class="contenedor-Nombre-Apellido">
                 <div class="contenedor-input">
                     <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+                    <h4 class="text-error" id="nombreError"></h4>
                     <% if(locals.errores && errores.nombre) { %>
                         <h4 class="text-error"><%= errores.nombre.msg %></h4>
                     <% } %>
@@ -32,6 +33,7 @@
     
                 <div class="contenedor-input">
                     <input type="text" name="apellido" id="apellido" placeholder="Apellido">
+                    <h4 class="text-error" id="apellidoError"></h4>
                     <% if(locals.errores && errores.apellido) { %>
                         <h4 class="text-error"><%= errores.apellido.msg %></h4>
                     <% } %>
@@ -40,6 +42,7 @@
             
             <div class="contenedor-input">
                 <input type="email" name="email" id="email" placeholder="Correo electronico" required>
+                <h4 class="text-error" id="emailError"></h4>
                 <% if(locals.errores) { %>
                   <% if(errores.email) { %>
                       <h4 class="text-error"><%= errores.email.msg %></h4>
@@ -51,9 +54,14 @@
             </div>
             <div class="contenedor-input">
                 <input type="password" name="password" id="password" placeholder="Contraseña">
+                <h4 class="text-error" id="passwordError"></h4>
+                <% if(locals.errores && errores.password) { %>
+                    <h4 class="text-error"><%= errores.password.msg %></h4>
+                <% } %>
             </div>
             <div class="contenedor-input">
                 <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirmar contraseña">
+                <h4 class="text-error" id="confirmPasswordError"></h4>
                 <% if(locals.errores && errores.confirmPassword) { %>
                     <h4 class="text-error"><%= errores.confirmPassword.msg %></h4>
                 <% } %>
@@ -61,6 +69,7 @@
 
             <div class="contenedor-input">
                 <input class="contenedor-form__input" type="file" id="image" name="image">
+                <h4 class="text-error" id="imageError"></h4>
                 <% if(locals.errores && errores.imageFormat) { %>
                     <h4 class="text-error"><%= errores.imageFormat.msg %></h4>
                 <% } %>
@@ -74,5 +83,5 @@
     </main>
     <%- include('./partials/footer') %>
 </body>
-
+<script src="/js/userregisterValidation.js"></script>
 </html>
