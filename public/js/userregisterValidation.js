@@ -17,40 +17,51 @@ form.addEventListener("submit", (evento) => {
     let email = document.getElementById("email");
     let password = document.getElementById("password");
     let confirmPassword = document.getElementById("confirmPassword");
-
+    let image = document.getElementById("image");
+ 
+ 
     nombreError.innerText= ""
     apellidoError.innerText= ""
     emailError.innerText= ""
     passwordError.innerText= ""
     confirmPasswordError.innerText= ""
-    /*
-    //apellidoError.innerText = apellido.value?():"El AP del producto no puede estar vacio"
-    //errores= apellidoError.innerText || apellidoError || emailError || passwordError || confirmPasswordError
+    imageError.innerText= ""
     
+    if (nombre.value == "") {
+        nombreError.innerText= "El Nombre no puede estar vacio"
+        errores = true
+    }else if(nombre.value.length <=2){
+        nombreError.innerText= "El Nombre debe ser mayor a 2 caracteres"; 
+        errores = true
+    }
+
     if (apellido.value == "") {
-        apellidoError.innerText= "El AP del producto no puede estar vacio"
+        apellidoError.innerText= "El Apellido no puede estar vacio"
         errores = true
     }
     else if(apellido.value.length <=2){
-        apellidoError.innerText= "Nombre del producto debe ser mayor a 5 caracteres"; 
+        apellidoError.innerText= "El Apellido debe ser mayor a 2 caracteres"; 
         errores = true
     }
 
-    if (nombre.value == "") {
-        nombreError.innerText= "El Nombre del producto no puede estar vacio"
-        errores = true
-    }
-    else if(nombre.value.length <=2){
-        nombreError.innerText= "Nombre del producto debe ser mayor a 5 caracteres"; 
+    if (email.value == "") {
+        emailError.innerText= "El email no puede estar vacio"
         errores = true
     }
 
+    if (password.value == "") {
+        passwordError.innerText= "Debe ingresar una contraseña"
+        errores = true
+    }else if (password.value != confirmPassword.value) {
+        confirmPasswordError.innerText= "Las contraseñas no coinciden"
+        errores = true
+    }
 
     if (errores = true) {
         evento.preventDefault();
     } else {
         form.submit();
     }
-*/
+
 })
 }
