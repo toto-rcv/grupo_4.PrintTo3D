@@ -69,7 +69,6 @@
 
             <div class="contenedor-input">
                 <input class="contenedor-form__input" type="file" id="image" name="image">
-                <h4 class="text-error" id="imageError"></h4>
                 <% if(locals.errores && errores.imageFormat) { %>
                     <h4 class="text-error"><%= errores.imageFormat.msg %></h4>
                 <% } %>
