@@ -6,23 +6,44 @@ const path = require("path");
 const isLogged = require ('../middlewares/isLogged')
 const authMiddleware = require("../middlewares/authMiddleware") 
 const { body } = require("express-validator");
+const { validationResult } = require("express-validator");
 
 
-
+let fileLocal
 const validaciones = [
-    body('nombre').notEmpty().withMessage('Tiene que ingresar un Nombre'), 
-	body('nombre').isLength({ min: 2 }).withMessage('El Nombre debe tener mas de 2 caracteres'),
-    body('apellido').notEmpty().withMessage('Tiene que ingresar un Apellido'),
-	body('apellido').isLength({ min: 2 }).withMessage('El Apellido debe tener mas de 2 caracteres'),
-    body('email').notEmpty().withMessage('Tiene que ingresar un email'),
-	body('email').isEmail().withMessage('Tiene que ingresar un email valido'),
-    body('password').notEmpty().withMessage('Debe ingresar una contraseña'), 
-	body('password').matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/, "i").withMessage('La contraseña debe cumplir con una Mayuscula'), 
-    body('confirmPassword').custom(async (confirmPassword, {req}) => {
+  body('nombre')
+    .notEmpty().withMessage('Tiene que ingresar un Nombre')
+    .isLength({ min: 2 }).withMessage('El Nombre debe tener mas de 2 caracteres'),
+  body('apellido')
+    .notEmpty().withMessage('Tiene que ingresar un Apellido')
+    .isLength({ min: 2 }).withMessage('El Apellido debe tener mas de 2 caracteres'),
+  body('email')
+    .notEmpty().withMessage('Tiene que ingresar un email')
+    .isEmail().withMessage('Tiene que ingresar un email valido'),
+  body('password')
+    .notEmpty().withMessage('Debe ingresar una contraseña')
+    .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/, 'i')
+    .withMessage('La contraseña debe tener al menos una mayúscula, una minúscula y un número, y debe tener una longitud mínima de 8 caracteres'),
+  body('confirmPassword').custom(async (confirmPassword, {req}) => {
 		const password = req.body.password
 		if(password !== confirmPassword){
 		  throw new Error('Las contraseñas deben ser iguales')
 		}
+	}),
+  body('imageFormat').custom(async (value, {req}) => {
+    let file = fileLocal;
+    let acceptedExtensions = ['.jpg', '.png', '.gif'];
+
+    if (!file) {
+        throw new Error('Tienes que subir una imagen');
+    } else {
+        let fileExtension = path.extname(file.originalname);
+        if (!acceptedExtensions.includes(fileExtension)) {
+            throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+        }
+    }
+
+    return true;
 	})
 ]
 
@@ -44,14 +65,12 @@ const storage = multer.diskStorage({
 
 });
 
-
-//Tenemos que ver como devolver el error.
-
 const upload = multer ({storage,fileFilter: (req, file, cb) => {
+  fileLocal = file
 	if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
 		cb(null, true);
 	} else {
-		return cb(new Error('Invalid mime type'));
+    cb(null, false);
 	}
 }})
 
