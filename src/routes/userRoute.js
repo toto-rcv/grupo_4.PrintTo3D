@@ -17,7 +17,7 @@ const validaciones = [
     body('email').notEmpty().withMessage('Tiene que ingresar un email'),
 	body('email').isEmail().withMessage('Tiene que ingresar un email valido'),
     body('password').notEmpty().withMessage('Debe ingresar una contraseña'), 
-	//body('password').matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/, "i").withMessage('La contraseña debe cumplir con una Mayuscula'), 
+	body('password').matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/, "i").withMessage('La contraseña debe cumplir con una Mayuscula'), 
     body('confirmPassword').custom(async (confirmPassword, {req}) => {
 		const password = req.body.password
 		if(password !== confirmPassword){
