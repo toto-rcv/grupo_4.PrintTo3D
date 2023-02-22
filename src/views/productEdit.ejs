@@ -21,7 +21,7 @@
     <%- include('./partials/header') %>  
     <main>
       <div class="forms-container">
-        <form class="contenedor-form" action="/products/<%= productToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <form class="contenedor-form" action="/products/<%= productToEdit.id %>/edit?_method=PUT" method="POST" enctype="multipart/form-data">
             <h1>Editar Producto</h1>
             <div class="contenedor-form__Agrupa">
 
@@ -33,15 +33,34 @@
                 <div class="contenedor-form__detalleProcucto">
                     <input class="contenedor-form__input" type="text" name="nombreProducto" id="nombreProducto" placeholder="Nombre del Producto" value="<%= productToEdit.name ? productToEdit.name : "" %>">
                     <!-- Agregar Categoria de forma Automatica  -->
+                    <h4 class="text-error" id="nameError"></h4>
+                    <% if(locals.errores && errores.nombreProducto) { %>
+                      <h4 class="text-error" ><%= errores.nombreProducto.msg %></h4>
+                    <% } %>
                     <select class="contenedor-form__input" name="idCategory" id="category" >  
                       <% for(let i=0; i<categories.length; i++) {%>
                         <option value="<%= categories[i].id %>" <%= productToEdit.idcategory == categories[i].id ? "selected" : "" %>><%= categories[i].name %></option>
                       <% } %>
                     </select>
                     <textarea class="contenedor-form__input" name="descripcion" id="descripcion" placeholder="Descripción" ><%= productToEdit.short_description ? productToEdit.short_description : "" %></textarea>
+                    <h4 class="text-error" id="descripcionError"></h4>
+                    <% if(locals.errores && errores.descripcion) { %>
+                      <h4 class="text-error" ><%= errores.descripcion.msg %></h4>
+                    <% } %>
                     <textarea class="contenedor-form__input" name="descripcionAmpliada" id="descripcionAmpliada" placeholder="Descripción ampliada"><%= productToEdit.long_description ? productToEdit.long_description : "" %></textarea>
-                    <input class="contenedor-form__input" type="number" name="precioProducto" id="precioProducto" placeholder="Precio del Producto" value="<%= productToEdit.price ? productToEdit.price : "" %>">   
+                    <h4 class="text-error" id="descripcionAmpliadaError"></h4>
+                    <% if(locals.errores && errores.descripcionAmpliada) { %>
+                      <h4 class="text-error" ><%= errores.descripcionAmpliada.msg %></h4>
+                    <% } %>
+                    <input class="contenedor-form__input" type="number" name="precioProducto" id="precioProducto" placeholder="Precio del Producto" value="<%= productToEdit.price ? productToEdit.price : "" %>">
+                    <h4 class="text-error" id="precioProductoError"></h4>
+                    <% if(locals.errores && errores.precioProducto) { %>
+                      <h4 class="text-error" ><%= errores.precioProducto.msg %></h4>
+                    <% } %>
                     <input class="contenedor-form__input" type="file" id="image" name="image">
+                    <% if(locals.errores && errores.imageFormat) { %>
+                      <h4 class="text-error"><%= errores.imageFormat.msg %></h4>
+                  <% } %>
                     <label for="colores">Colores:</label>
                     <div class="colors-container">
                       <% for(let i=0; i<colores.length; i++) {%>

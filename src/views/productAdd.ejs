@@ -55,6 +55,9 @@
                       <h4 class="text-error"><%= errores.price.msg %></h4>
                     <% } %>
                     <input class="contenedor-form__input" type="file" id="image" name="image">
+                    <% if(locals.errores && errores.imageFormat) { %>
+                      <h4 class="text-error"><%= errores.imageFormat.msg %></h4>
+                  <% } %>
                     <label for="colores">Colores:</label>
                     <div class="colors-container">
                       <% for(let i=0; i<colores.length; i++) {%>
