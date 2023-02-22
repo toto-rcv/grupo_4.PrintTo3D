@@ -48,7 +48,7 @@ const validaciones = [
 ]
 
 const validacionesLogin = [
-  body('email').notEmpty().withMessage('Tiene que ingresar un email'),
+  body('email').notEmpty().withMessage('Tiene que ingresar un email').matches(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, 'i').withMessage('Debes ingresar un email válido'),
   body('password').notEmpty().withMessage('Tiene que ingresar una contraseña')
 ]
 

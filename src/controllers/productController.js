@@ -65,7 +65,7 @@ const productController = {
 			}
 		);
 	},
-  
+
 	edit: (req, res) => {
 		let id = req.params.id;
 		let productToEdit = db.Products.findByPk(id);
@@ -94,9 +94,10 @@ const productController = {
 		);
 	},
 	update: async (req, res) => {
+		let errores = validationResult(req);
 		let colorsArr = [req.body.colores]; // Los colores pueden ser un string o un array, por eso se le aplica flat
-		colorsArr = colorsArr.flat();
-		const id = req.params.id;
+			colorsArr = colorsArr.flat();
+			const id = req.params.id;
 		const {
 			nombreProducto,
 			descripcion,
@@ -113,32 +114,57 @@ const productController = {
 			id_category: idCategory,
 			price: precioProducto,
 		};
-		await db.Products.update(
-			{
-				...productToEdit,
-			},
-			{
-				where: { id },
-			}
-		).catch((error) => res.send(error));
-		db.ProductColors.destroy({
-			where: { id_product: id },
-		}).catch((error) => res.send(error));
-		const newProductColors = colorsArr.map((color) => {
-			return {
-				id_product: id,
-				id_color: color,
-			};
-		});
-		newProductColors.forEach((relation) => {
-			db.ProductColors.create(relation).catch((error) => res.send(error));
-		});
-		res.redirect("/");
+		if (errores.isEmpty()) {
+			await db.Products.update(
+				{
+					...productToEdit,
+				},
+				{
+					where: { id },
+				}
+			).catch((error) => res.send(error));
+			db.ProductColors.destroy({
+				where: { id_product: id },
+			}).catch((error) => res.send(error));
+			const newProductColors = colorsArr.map((color) => {
+				return {
+					id_product: id,
+					id_color: color,
+				};
+			});
+			newProductColors.forEach((relation) => {
+				db.ProductColors.create(relation).catch((error) => res.send(error));
+			});
+			res.redirect("/");
+		} else {
+			let coloresSeleccionados = db.ProductColors.findAll({
+				include: "Colores",
+				where: {
+					id_product: req.params.id,
+				},
+			});
+			let categories = db.ProductCategory.findAll();
+			let colors = db.Colors.findAll();
+			Promise.all([coloresSeleccionados, categories, colors]).then(([coloresSeleccionados, categories, colors]) => {
+				let filterColor = [];
+				coloresSeleccionados.forEach((element) => {
+					filterColor.push(element.id_color);
+				});
+				filterColor = filterColor.flat();
+				res.render("productEdit", {
+					productToEdit,
+					categories,
+					colores: colors,
+					filterColor,
+					errores: errores.mapped()
+				});
+			})
+		}
 	},
 
 	productStore: (req, res) => {
-	let errores = validationResult(req);	
-    let colorsArr = [req.body.colores]; 
+		let errores = validationResult(req);
+		let colorsArr = [req.body.colores];
 		colorsArr = colorsArr.flat();
 		let newProduct = {
 			name: req.body.name,
@@ -148,45 +174,45 @@ const productController = {
 			id_category: req.body.id_category,
 			price: req.body.price,
 		};
-	if (errores.isEmpty()){
-		db.Products.create(newProduct)
-      .then ((createProduct => {
-        const newProductColors = colorsArr.map((color) => {
-          return {
-            id_product: createProduct.id,
-            id_color: color,
-          };
-        });
-        newProductColors.forEach((relation) => {
-          db.ProductColors.create(relation).catch((error) => res.send(error));
-        });
-      }))
-      res.redirect("/")
-	}else{
-		let ProductCategory = db.ProductCategory.findAll();
-		let Colors = db.Colors.findAll();
-		Promise.all([ProductCategory, Colors]).then(([ProductCategory, Colors]) => {
-			res.render("productAdd", {
-				categories: ProductCategory,
-				colores: Colors,
-				errores: errores.mapped()
+		if (errores.isEmpty()) {
+			db.Products.create(newProduct)
+				.then((createProduct => {
+					const newProductColors = colorsArr.map((color) => {
+						return {
+							id_product: createProduct.id,
+							id_color: color,
+						};
+					});
+					newProductColors.forEach((relation) => {
+						db.ProductColors.create(relation).catch((error) => res.send(error));
+					});
+				}))
+			res.redirect("/")
+		} else {
+			let ProductCategory = db.ProductCategory.findAll();
+			let Colors = db.Colors.findAll();
+			Promise.all([ProductCategory, Colors]).then(([ProductCategory, Colors]) => {
+				res.render("productAdd", {
+					categories: ProductCategory,
+					colores: Colors,
+					errores: errores.mapped()
+				});
 			});
-		});
-	}
-	
+		}
+
 	},
 
 	delete: (req, res) => {
 		let id = req.params.id;
-    let productDelete = db.Products.destroy({
+		let productDelete = db.Products.destroy({
 			where: { id: id },
 		})
-    let productColor = db.ProductColors.destroy({
+		let productColor = db.ProductColors.destroy({
 			where: { id_product: id },
-		})   
-    Promise.all([productDelete, productColor])
-    .then(res.redirect("/"))
-    .catch((error) => res.send(error));
+		})
+		Promise.all([productDelete, productColor])
+			.then(res.redirect("/"))
+			.catch((error) => res.send(error));
 	},
 };
 
