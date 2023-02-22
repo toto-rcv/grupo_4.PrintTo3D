@@ -24,7 +24,7 @@
 
     * Ricardo Martinez: vivo en Neuquen capital y tengo 36 años. Entré al curso para comenzar mi camino en desarrollo Web. Me motiva mantenerme actualizado con nuevas tecnologías, y que sumen a mi crecimiento laboral y personal. Actualmente trabajo en Sistema de Control, programando plataformas SCADAs.
     Hobbies: Running, mountain bike, snowboard y música.
-
+..
 
   Tablero de tabajo :
   https://trello.com/b/qnlVzuoy/printto3d
