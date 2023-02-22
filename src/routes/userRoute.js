@@ -18,7 +18,7 @@ const validaciones = [
     .notEmpty().withMessage('Tiene que ingresar un Apellido')
     .isLength({ min: 2 }).withMessage('El Apellido debe tener mas de 2 caracteres'),
   body('email')
-    .notEmpty().withMessage('Tiene que ingresar un email')
+    .notEmpty().withMessage('Tiene que ingresar un email.')
     .isEmail().withMessage('Tiene que ingresar un email valido'),
   body('password')
     .notEmpty().withMessage('Debe ingresar una contraseña')
