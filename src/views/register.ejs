@@ -20,7 +20,7 @@
 <body>
     <%- include('./partials/header') %>
     <main>
-        <form class="contenedor-form" action="/register" method="POST" enctype="multipart/form-data">
+        <form name = "formulario" class="contenedor-form" action="/register" method="POST" enctype="multipart/form-data">
             <h1>Crea tu cuenta en PrintTo3D</h1>
             <div class="contenedor-Nombre-Apellido">
                 <div class="contenedor-input">
@@ -68,7 +68,7 @@
             </div>
 
             <div class="contenedor-input">
-                <input class="contenedor-form__input" type="file" id="image" name="image">
+                <input onchange = "cambio ()" class="contenedor-form__input" type="file" id="image" name="image">
                 <% if(locals.errores && errores.imageFormat) { %>
                     <h4 class="text-error"><%= errores.imageFormat.msg %></h4>
                 <% } %>
