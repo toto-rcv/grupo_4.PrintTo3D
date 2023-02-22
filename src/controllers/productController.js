@@ -28,7 +28,6 @@ const productController = {
 				id_category: id,
 			},
 		}).then((productosId) => {
-			console.log(productosId);
 			res.render("category", { productosId });
 		});
 	},

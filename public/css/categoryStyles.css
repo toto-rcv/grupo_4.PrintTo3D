@@ -91,6 +91,7 @@ main button {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    margin: 15px;
 }
 .box-articulos section {
     max-width: 100%;
@@ -102,6 +103,14 @@ main button {
 .box-articulos section {
     flex-basis: 45%;
     margin: 10px;
+}
+.contenedor-del-articulo{
+    border-radius: 10px;
+}
+
+img{
+ border-top-right-radius: 10px;
+ border-top-left-radius: 10px;
 }
 
 .box-precio {

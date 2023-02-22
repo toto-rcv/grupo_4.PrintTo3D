@@ -99,6 +99,8 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  justify-content: center;
+  align-items: center;
 }
 .footer-list ul li {
   display: flex;
@@ -133,6 +135,8 @@ footer {
     padding-left: 2px;
     padding-left: 2px;
   }
+  
+  
 }
 @media (min-width: 769px) {
   #user-section {
@@ -141,9 +145,7 @@ footer {
   #nav-mobile {
     display: none;
   }
-  #nav-section nav {
-    display: flex;
-  }
+ 
   footer {
     justify-content: center;
     column-gap: 50px;
