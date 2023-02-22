@@ -35,7 +35,7 @@
       <h2 class="titulo-categoria">Impresoras 3D</h2>
       <div class="box-articulos">
         <% for(let i=0; i<productosId.length; i++) { %>
-          <section>
+          <section class="contenedor-del-articulo">
             <a href="/productDetails/<%= productosId[i].id %>" >
               <img src="<%= "/img/" + productosId[i].image  %>" alt="imagen de producto">
             <article>
