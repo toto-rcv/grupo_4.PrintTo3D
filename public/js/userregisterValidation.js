@@ -20,48 +20,19 @@ form.addEventListener("submit", (evento) => {
    // let image = document.getElementById("image");
  
  
-    nombreError.innerText= ""
-    apellidoError.innerText= ""
-    emailError.innerText= ""
-    passwordError.innerText= ""
-    confirmPasswordError.innerText= ""
-    imageError.innerText= ""
-    
-    if (nombre.value == "") {
-        nombreError.innerText= "El Nombre no puede estar vacio"
-        errores = true
-    }else if(nombre.value.length <=2){
-        nombreError.innerText= "El Nombre debe ser mayor a 2 caracteres"; 
-        errores = true
-    }
-
-    if (apellido.value == "") {
-        apellidoError.innerText= "El Apellido no puede estar vacio"
-        errores = true
-    }
-    else if(apellido.value.length <=2){
-        apellidoError.innerText= "El Apellido debe ser mayor a 2 caracteres"; 
-        errores = true
-    }
-
-    if (email.value == "") {
-        emailError.innerText= "El email no puede estar vacio"
-        errores = true
-    }
-
-    if (password.value == "") {
-        passwordError.innerText= "Debe ingresar una contraseña"
-        errores = true
-    }else if (password.value != confirmPassword.value) {
-        confirmPasswordError.innerText= "Las contraseñas no coinciden"
-        errores = true
-    }
-
-    if (errores = true) {
+    nombreError.innerText= nombre.value ? (nombre.value.length <= 2 ? "El nombre debe ser mayor a dos caracteres" : "") : "El Nombre no puede estar vacio"
+    apellidoError.innerText= !apellido.value ? "El Apellido no puede estar vacio" : (apellido.value.length <= 2 ? "El apellido debe ser mayor a dos caracteres" : "") 
+    emailError.innerText= !email.value ?  "El email no puede estar vacio" : ""
+    passwordError.innerText= !password.value ? "Debe ingresar una contraseña" : (password.value !== confirmPassword.value ? "Las contraseñas no coinciden" : "")
+    //imageError.innerText= ""
+    //.matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/, 'i')
+   
+    if(!!nombreError.innerText || !!apellidoError.innerText || !!emailError.innerText || !!passwordError.innerText){
         evento.preventDefault();
-    } else {
+        return
+    }else {
+        console.log ("holis")
         form.submit();
     }
-
 })
 }
