@@ -19,7 +19,7 @@ const validaciones = [
 	body('price').notEmpty().withMessage('Tiene que ingresar un precio'),
 	body('imageFormat').custom(async (value, {req}) => {
 		let file = fileLocal;
-		let acceptedExtensions = ['.jpg', '.png', '.gif'];
+		let acceptedExtensions = ['.jpg','.jpeg', '.png', '.gif'];
 	
 		if (!file) {
 			throw new Error('Tienes que subir una imagen');
@@ -46,7 +46,7 @@ const validacionesEdit = [
 	body('precioProducto').notEmpty().withMessage('Tiene que ingresar un precio'),
 	body('imageFormat').custom(async (value, {req}) => {
 		let file = fileLocal;
-		let acceptedExtensions = ['.jpg', '.png', '.gif'];
+		let acceptedExtensions = ['.jpg','.jpeg', '.png', '.gif'];
 	
 		if (!file) {
 			throw new Error('Tienes que subir una imagen');

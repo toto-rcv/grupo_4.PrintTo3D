@@ -17,8 +17,8 @@
 
 <body>
     <%- include('./partials/header') %>  
-    <main>
-     
+    <main>   
+      <div class="forms-container">
         <form class="contenedor-form" action="" method="POST" id="form" enctype="multipart/form-data">
             <h1>Alta de Nuevo Producto</h1>
            
@@ -55,6 +55,7 @@
                       <h4 class="text-error"><%= errores.price.msg %></h4>
                     <% } %>
                     <input class="contenedor-form__input" type="file" id="image" name="image">
+                    <h4 class="text-error" id="imageError"></h4>
                     <% if(locals.errores && errores.imageFormat) { %>
                       <h4 class="text-error"><%= errores.imageFormat.msg %></h4>
                   <% } %>
@@ -76,6 +77,7 @@
                 </div>
             </div>
         </form>
+      </div>  
     </main>
     <%- include('./partials/footer') %>  
 </body>

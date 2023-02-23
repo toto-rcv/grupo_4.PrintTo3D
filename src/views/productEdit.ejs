@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="/css/productAdd.css">
     <link rel="stylesheet" href="/css/layoutStyles.css">
     <link rel="stylesheet" href="/css/reset.css">
-
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,13 +23,8 @@
             <h1>Editar Producto</h1>
             <div class="contenedor-form__Agrupa">
 
-                <!--<div class="contenedor-form__imagenproducto">
-                    <img src="/img/imgg.jpg" alt="product-image">
-                    <input class="button-center button-center__editImagen" type="button" name="cambiarImagen" id="cambiarImagen" value="Cambiar Imagen">
-                </div>
-                -->
                 <div class="contenedor-form__detalleProcucto">
-                    <input class="contenedor-form__input" type="text" name="nombreProducto" id="nombreProducto" placeholder="Nombre del Producto" value="<%= productToEdit.name ? productToEdit.name : "" %>">
+                    <input class="contenedor-form__input" type="text" name="nombreProducto" id="name" placeholder="Nombre del Producto" value="<%= productToEdit.name ? productToEdit.name : "" %>">
                     <!-- Agregar Categoria de forma Automatica  -->
                     <h4 class="text-error" id="nameError"></h4>
                     <% if(locals.errores && errores.nombreProducto) { %>
@@ -42,22 +35,23 @@
                         <option value="<%= categories[i].id %>" <%= productToEdit.idcategory == categories[i].id ? "selected" : "" %>><%= categories[i].name %></option>
                       <% } %>
                     </select>
-                    <textarea class="contenedor-form__input" name="descripcion" id="descripcion" placeholder="Descripción" ><%= productToEdit.short_description ? productToEdit.short_description : "" %></textarea>
-                    <h4 class="text-error" id="descripcionError"></h4>
+                    <textarea class="contenedor-form__input" name="descripcion" id="short_description" placeholder="Descripción" ><%= productToEdit.short_description ? productToEdit.short_description : "" %></textarea>
+                    <h4 class="text-error" id="short_descriptionError"></h4>
                     <% if(locals.errores && errores.descripcion) { %>
                       <h4 class="text-error" ><%= errores.descripcion.msg %></h4>
                     <% } %>
-                    <textarea class="contenedor-form__input" name="descripcionAmpliada" id="descripcionAmpliada" placeholder="Descripción ampliada"><%= productToEdit.long_description ? productToEdit.long_description : "" %></textarea>
-                    <h4 class="text-error" id="descripcionAmpliadaError"></h4>
+                    <textarea class="contenedor-form__input" name="descripcionAmpliada" id="long_description" placeholder="Descripción ampliada"><%= productToEdit.long_description ? productToEdit.long_description : "" %></textarea>
+                    <h4 class="text-error" id="long_descriptionError"></h4>
                     <% if(locals.errores && errores.descripcionAmpliada) { %>
                       <h4 class="text-error" ><%= errores.descripcionAmpliada.msg %></h4>
                     <% } %>
-                    <input class="contenedor-form__input" type="number" name="precioProducto" id="precioProducto" placeholder="Precio del Producto" value="<%= productToEdit.price ? productToEdit.price : "" %>">
-                    <h4 class="text-error" id="precioProductoError"></h4>
+                    <input class="contenedor-form__input" type="number" name="precioProducto" id="price" placeholder="Precio del Producto" value="<%= productToEdit.price ? productToEdit.price : "" %>">
+                    <h4 class="text-error" id="priceError"></h4>
                     <% if(locals.errores && errores.precioProducto) { %>
                       <h4 class="text-error" ><%= errores.precioProducto.msg %></h4>
                     <% } %>
                     <input class="contenedor-form__input" type="file" id="image" name="image">
+                    <h4 class="text-error" id="imageError"></h4>
                     <% if(locals.errores && errores.imageFormat) { %>
                       <h4 class="text-error"><%= errores.imageFormat.msg %></h4>
                   <% } %>
@@ -92,5 +86,5 @@
     </main>
     <%- include('./partials/footer') %>  
 </body>
-
+<script src="/js/productAddValidation.js"></script>
 </html>
