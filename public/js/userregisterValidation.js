@@ -1,10 +1,11 @@
 window.onload = function () {
+
 	let form = document.querySelector(".contenedor-form");
 	let nombreError = document.getElementById("nombreError");
 	let apellidoError = document.getElementById("apellidoError");
 	let emailError = document.getElementById("emailError");
 	let passwordError = document.getElementById("passwordError");
-	let confirmPasswordError = document.getElementById("confirmPasswordError");
+	let imageError = document.getElementById("imageError");
 	let image = document.querySelector("input[type=file]");
 
 	const fileTypes = [
@@ -30,7 +31,6 @@ window.onload = function () {
 	}
 
 	form.addEventListener("submit", (evento) => {
-		let errores = false;
 		let nombre = document.getElementById("nombre");
 		let apellido = document.getElementById("apellido");
 		let email = document.getElementById("email");
@@ -63,18 +63,17 @@ window.onload = function () {
 		} else {
 			passwordError.innerText = "Debe ingresar una contraseña";
 		}
-		//imageError.innerText= ""
 
 		if (
 			!!nombreError.innerText ||
 			!!apellidoError.innerText ||
 			!!emailError.innerText ||
-			!!passwordError.innerText
+			!!passwordError.innerText ||
+            !!imageError.innerText
 		) {
 			evento.preventDefault();
 			return;
 		} else {
-			console.log("holis");
 			form.submit();
 		}
 	});
