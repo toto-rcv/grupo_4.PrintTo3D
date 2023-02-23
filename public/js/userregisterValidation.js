@@ -23,11 +23,9 @@ window.onload = function () {
 
 	function updateImageDisplay() {
 		const curFiles = image.files[0];
-		if (curFiles && validFileType(curFiles)) {
-			imageError.innerText = "";
-		} else {
-			imageError.innerText =
-				"Solo es posible subir archivos (JPG, JPEG, PNG, GIF)";
+        imageError.innerText = ""
+		if (curFiles && !validFileType(curFiles)) {
+			imageError.innerText ="Solo es posible subir archivos (JPG, JPEG, PNG, GIF)";
 		}
 	}
 
@@ -38,9 +36,6 @@ window.onload = function () {
 		let email = document.getElementById("email");
 		let password = document.getElementById("password");
 		let confirmPassword = document.getElementById("confirmPassword");
-		let image = document.getElementById("image");
-
-		console.log(image.files);
 
 		nombreError.innerText = nombre.value
 			? nombre.value.length <= 2
