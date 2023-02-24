@@ -23,7 +23,7 @@ const validaciones = [
 	
 		if (file) {
 			let fileExtension = path.extname(file.originalname);
-			if (!acceptedExtensions.includes(fileExtension)) {
+			if (!acceptedExtensions.includes(fileExtension.toLowerCase())) {
 				throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
 			}
 		}
@@ -59,13 +59,13 @@ router.get('/category/:id', productController.category);
 router.get("/kart", productController.kart);
 
 /*** CREATE ONE PRODUCT ***/
-router.get("/products/create", productController.productAdd);
-router.post("/products/create", upload.single('image'), validaciones, productController.productStore);
+router.get("/products/create",authMiddleware, productController.productAdd);
+router.post("/products/create",authMiddleware, upload.single('image'), validaciones, productController.productStore);
 
 /*** EDIT ONE PRODUCT ***/
-router.get('/products/:id/edit',  productController.edit);
-router.put('/products/:id/edit', upload.single("image"), validaciones, productController.update);
-router.delete('/products/:id', productController.delete);
+router.get('/products/:id/edit',authMiddleware,  productController.edit);
+router.put('/products/:id/edit',authMiddleware, upload.single("image"), validaciones, productController.update);
+router.delete('/products/:id',authMiddleware, productController.delete);
 
 /*** GET ONE PRODUCT ***/
 router.get("/productDetails/:id", productController.productDetails);
