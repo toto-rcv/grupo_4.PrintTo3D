@@ -98,20 +98,20 @@ const productController = {
 			colorsArr = colorsArr.flat();
 			const id = req.params.id;
 		const {
-			nombreProducto,
-			descripcion,
-			descripcionAmpliada,
+			name,
+			short_description,
+			long_description,
 			idCategory,
-			precioProducto,
+			price,
 		} = req.body;
 		let productToEdit = {
 			id: id,
-			name: nombreProducto,
-			short_description: descripcion,
-			long_description: descripcionAmpliada,
+			name,
+			short_description,
+			long_description,
 			image: req.file ? req.file.filename : "default-image.jpg",
 			id_category: idCategory,
-			price: precioProducto,
+			price,
 		};
 		if (errores.isEmpty()) {
 			await db.Products.update(
