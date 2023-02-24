@@ -39,13 +39,17 @@ header nav {
   gap: 15px;
 }
 
-header nav button {
-    background-color: #000000;
-    color: #ffffff;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    padding-left: 12px;
-    padding-right: 12px;
+header nav a {
+  background-color: #000000;
+  color: #ffffff;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+header nav a:hover {
+  text-decoration: underline;
 }
 
 #user-section {
@@ -66,14 +70,52 @@ header nav button {
   border: 3px solid #0093d7;
   border-radius: 20px;
 }
+
+#user-section button:hover {
+  text-decoration: underline;
+}
+
 #nav-mobile {
   margin-right: 15px;
+  position: relative;
 }
 #nav-mobile button i {
   color: #ffffff;
   padding: 10px;
   border: 3px solid #0093d7;
   border-radius: 20px;
+}
+#nav-mobile #hamb-menu {
+  opacity: 0%;
+  pointer-events: none;
+  transition-duration: 0.5s;
+  transition-property: all;
+  transition-timing-function: ease-out;
+  padding: 20px;
+  border-radius: 10px;
+  position: absolute;
+  right: 0px;
+  top: 100%;
+  background-color: #000000;
+  border: 3px solid #0093d7;
+  width: 40vw;
+  min-height: 30vh;
+}
+#nav-mobile button:focus + #hamb-menu {
+  opacity: 100%;
+  pointer-events: auto;
+}
+#nav-mobile #hamb-menu ul {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+}
+#nav-mobile #hamb-menu ul li {
+  padding: 10px;
+  cursor: pointer;
+}
+#nav-mobile #hamb-menu ul li:hover {
+  background-color: #0093d76c;
 }
 footer {
   width: 100%;
@@ -145,7 +187,9 @@ footer {
   #nav-mobile {
     display: none;
   }
- 
+  header nav {
+    display: flex;
+  }
   footer {
     justify-content: center;
     column-gap: 50px;
@@ -160,9 +204,6 @@ footer {
 @media (min-width: 1024px) {
   header {
     font-size: 16px;
-  }
-  header nav {
-    display: block;
   }
   footer {
     column-gap: 80px;

@@ -17,7 +17,10 @@ const userController = {
 		res.render("r-contrasena");
 	},
 	register: (req, res) => {
-		res.render("register");
+    db.ProductCategory.findAll()
+    .then(categories => {
+      res.render('register', {categories})
+    })
 	},
 	userStore: (req, res) => {
 		let errores = validationResult(req);
@@ -96,7 +99,10 @@ const userController = {
 	},
 
 	login: (req, res) => {
-		res.render("login");
+    db.ProductCategory.findAll()
+    .then(categories => {
+      res.render('login', {categories})
+    })
 	},
 
 	logout: (req, res) => {

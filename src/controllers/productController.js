@@ -19,16 +19,20 @@ const sequelize = db.sequelize;
 
 const productController = {
 	busqueda: (req, res) => {
-		res.render("busqueda");
+    db.ProductCategory.findAll()
+    .then(categories => {
+      res.render('busqueda', {categories})
+    })
 	},
-	category: (req, res) => {
+	category: async (req, res) => {
 		let id = req.params.id;
+    let categories = await db.ProductCategory.findAll()
 		db.Products.findAll({
 			where: {
 				id_category: id,
 			},
 		}).then((productosId) => {
-			res.render("category", { productosId });
+			res.render("category", { productosId, categories });
 		});
 	},
 	kart: (req, res) => {
@@ -44,7 +48,8 @@ const productController = {
 			});
 		});
 	},
-	productDetails: (req, res) => {
+	productDetails: async (req, res) => {
+    let categories = await db.ProductCategory.findAll()
 		let idProduct = req.params.id;
 		let productoEncontrado = db.Products.findByPk(idProduct);
 		let colors = db.ProductColors.findAll({
@@ -60,7 +65,7 @@ const productController = {
 					filterColor.push(element.Colores);
 				});
 				filterColor = filterColor.flat();
-				res.render("product", { productoEncontrado, colors: filterColor });
+				res.render("product", { productoEncontrado, colors: filterColor, categories });
 			}
 		);
 	},
