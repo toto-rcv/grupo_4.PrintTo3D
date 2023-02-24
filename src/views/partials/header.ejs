@@ -4,15 +4,24 @@
 			<img src="/img/logo2.png" alt="LogoPrintTo3D" width="150px" />
 		</a>
 		<nav>
-			<button type="button">Insumos</button>
-			<button type="button">Impresoras de Resina</button>
-			<button type="button">Impresoras de Filamento</button>
+      <% for(let i=0; i<categories.length; i++) {%>
+			  <a href="/category/<%= categories[i].id %>"><%= categories[i].name %></a>
+      <% } %>
 		</nav>
 	</section>
 	<section id="nav-mobile">
 		<button type="button">
 			<i class="fa-sharp fa-solid fa-bars"></i>
 		</button>
+    <div id="hamb-menu">
+      <ul>
+        <% for(let i=0; i<categories.length; i++) {%>
+          <li>
+            <a href="/category/<%= categories[i].id %>"><%= categories[i].name %></a>
+          </li>
+        <% } %>
+      </ul>
+    </div>
 	</section>
 
 	<section id="user-section">
