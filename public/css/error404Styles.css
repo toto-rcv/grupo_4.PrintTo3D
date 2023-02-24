@@ -1,0 +1,43 @@
+body {
+    background-color: black;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+h1 {
+    color: white;
+
+
+}
+
+.contenedor {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: space-between;
+    gap: 5px;
+    position: relative;
+}
+
+@keyframes titilar {
+    0% { background-color: #0093d7;
+        opacity: 0%;
+    }
+
+    100% { 
+        opacity: 100%;
+    }
+}
+
+.contenedor-tintilante {
+    background-color:#0093d7;
+    color: black;
+    height: 15px;
+    width: 5px;
+    animation-name: titilar ;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
