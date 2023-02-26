@@ -31,6 +31,13 @@ main button {
   padding-left: 12px;
   padding-right: 12px;
   border-radius: 10px;
+
+  
+}
+
+main button:hover{
+  background-color: rgb(1, 65, 93);
+ 
 }
 #first-section {
   width: 100%;
