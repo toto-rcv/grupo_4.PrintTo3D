@@ -36,8 +36,14 @@ app.set('views', './src/views');
 const mainRoute = require('./src/routes/mainRoute');
 const productRoute = require('./src/routes/productRoute');
 const userRoute = require('./src/routes/userRoute');
+const apiUsersRouter = require('./src/routes/api/users')
 
-app.use("/", [mainRoute,productRoute,userRoute]);
+
+
+app.use("/", [mainRoute,productRoute,userRoute,apiUsersRouter]);
+
+
+
 
 app.use((req, res, next) =>{
   res.status(404).render('not-found')
