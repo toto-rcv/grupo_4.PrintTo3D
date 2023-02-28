@@ -37,10 +37,10 @@ const mainRoute = require('./src/routes/mainRoute');
 const productRoute = require('./src/routes/productRoute');
 const userRoute = require('./src/routes/userRoute');
 const apiUsersRouter = require('./src/routes/api/users')
+const apiProductsRouter = require('./src/routes/api/products')
 
 
-
-app.use("/", [mainRoute,productRoute,userRoute,apiUsersRouter]);
+app.use("/", [mainRoute,productRoute,userRoute,apiUsersRouter,apiProductsRouter]);
 
 
 

@@ -4,41 +4,36 @@ const sequelize = db.sequelize;
 /*DB*/
 
 
-const usersAPIController = {
+const productsAPIController = {
     'list': (req, res) => {
-        db.Users.findAll()
+        db.Products.findAll()
 
-        .then(user => {
-            
-            for (let i = 0; i < user.length; i++) {
-               delete user[i].dataValues.password    
-            }
+        .then(product => {
             let respuesta = {
                 meta: {
                     status : 200,
-                    total: user.length,
+                    total: product.length,
                     url: 'api/actors'
                 },
-                data: user
+                data: product
             }
                 res.json(respuesta);
             })
     },
     'detail': (req, res) => {
-        db.Users.findByPk(req.params.id)
-            .then(User => {
-                User.password = ""
+        db.Products.findByPk(req.params.id)
+            .then(product => {
                 let respuesta = {
                     meta: {
                         status: 200,
-                        total: User.length,
-                        url: '/api/user/:id'
+                        total: product.length,
+                        url: '/api/product/:id'
                     },
-                    data: User
+                    data: product
                 }
                 res.json(respuesta);
             });
     },
     
 }
-    module.exports = usersAPIController;
+    module.exports = productsAPIController;
