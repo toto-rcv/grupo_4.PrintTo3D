@@ -9,12 +9,43 @@
       <% } %>
 		</nav>
 	</section>
+  <div id="overlay"></div>
 	<section id="nav-mobile">
-		<button type="button">
+		<button type="button" id="menu-button">
 			<i class="fa-sharp fa-solid fa-bars"></i>
 		</button>
     <div id="hamb-menu">
       <ul>
+        <% if(locals.userLogged) { %>
+          <li id="menu-user-logged">
+            <p><%= userLogged.name %></p>
+            <button type="button" style="cursor: default;">
+              <% if(userLogged.image) { %>
+                <img src="<%= "/img/users/" + userLogged.image %>" alt="" style="height: 38px; width: 38px; border-radius: 100%; border: 3px solid #0093d7;">
+              <% } else { %>
+                <i class="fa-sharp fa-solid fa-circle-user"></i>
+              <% }%>
+            </button>
+          </li>
+        <% } else { %>
+          <li>
+            <a href="/register">
+              <button type="button">Crear cuenta</button></a>
+          </li>
+        <% }%>
+        <% if(locals.userLogged) { %>
+          <li>
+            <a href="/logout">
+              Cerrar sesión
+            </a>
+          </li>
+        <% } else { %>
+          <li>
+            <a href="/login">
+              Iniciar sesión
+            </a>
+          </li>
+        <% }%>
         <% for(let i=0; i<categories.length; i++) {%>
           <li>
             <a href="/category/<%= categories[i].id %>"><%= categories[i].name %></a>
@@ -26,7 +57,7 @@
 
 	<section id="user-section">
 		<% if(locals.userLogged) { %>
-		<button type="button"><%= userLogged.name %></button>
+		<button type="button" id="nameLogged"><%= userLogged.name %></button>
 		<% } else { %>
 		<a href="/register">
 			<button type="button">Crear cuenta</button>
@@ -42,8 +73,14 @@
       <% }%>
 
 
-		<button type="button">
-			<i class="fa-sharp fa-solid fa-circle-user"></i>
-		</button>
+    <% if(locals.userLogged) { %>
+		  <button type="button" style="cursor: default;">
+        <% if(userLogged.image) { %>
+          <img src="<%= "/img/users/" + userLogged.image %>" alt="" style="height: 38px; width: 38px; border-radius: 100%; border: 3px solid #0093d7;">
+        <% } else { %>
+          <i class="fa-sharp fa-solid fa-circle-user"></i>
+        <% }%>
+		  </button>
+    <% }%>
 	</section>
 </header>
