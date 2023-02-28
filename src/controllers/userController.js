@@ -91,7 +91,10 @@ const userController = {
 				}
 				return res.redirect("/")
 			}else {
-				return res.render("login", { errores: errores.mapped() });
+        db.ProductCategory.findAll()
+        .then(categories => {
+          return res.render("login", { errores: errores.mapped(), categories });
+        })
 			}
 
 
