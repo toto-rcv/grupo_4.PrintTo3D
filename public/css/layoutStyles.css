@@ -23,6 +23,7 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  column-gap: 30px;
   align-items: center;
   border-bottom: 4px solid #0093d7;
   position: fixed;
@@ -66,6 +67,27 @@ header nav a:hover {
 #user-section button {
   color: #ffffff;
 }
+#overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+  background-color: #00000092;
+  pointer-events: none;
+  opacity: 0%;
+  z-index: -9999;
+  transition-duration: 0.5s;
+  transition-property: all;
+  transition-timing-function: ease-out;
+}
+
+#overlay.shown {
+  pointer-events: auto;
+  cursor: pointer;
+  opacity: 100%;
+  z-index: 999;
+}
 
 #user-section button i {
   color: #ffffff;
@@ -73,14 +95,29 @@ header nav a:hover {
   border: 3px solid #0093d7;
   border-radius: 20px;
 }
-
+#hamb-menu #menu-user-logged {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between !important;
+  align-items: center;
+  background-color: #0093d76c;
+}
+#hamb-menu #menu-user-logged:hover {
+  cursor: default;
+}
 #user-section button:hover {
   text-decoration: underline;
+}
+
+#user-section button#nameLogged:hover {
+  text-decoration: none;
+  cursor: default;
 }
 
 #nav-mobile {
   margin-right: 15px;
   position: relative;
+  z-index: 9999;
 }
 
 #nav-mobile button i {
@@ -107,20 +144,30 @@ header nav a:hover {
   min-height: 30vh;
 }
 
-#nav-mobile button:focus+#hamb-menu {
-  opacity: 100%;
-  pointer-events: auto;
+#nav-mobile #hamb-menu.opened {
+  opacity: 100% !important;
+  pointer-events: auto !important;
+  z-index: 9999;
 }
 
 #nav-mobile #hamb-menu ul {
   display: flex;
   flex-direction: column;
+  align-items: stretch !important;
   row-gap: 4px;
 }
 
 #nav-mobile #hamb-menu ul li {
+  color: #ffffff !important;
+  display: flex;
+  justify-content: start;
   padding: 10px;
   cursor: pointer;
+}
+#nav-mobile #hamb-menu ul li a {
+  color: #ffffff !important;
+  width: 100%;
+  text-align: left;
 }
 
 #nav-mobile #hamb-menu ul li:hover {
