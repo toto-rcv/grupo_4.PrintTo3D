@@ -178,7 +178,9 @@ const productController = {
 			id_category: req.body.id_category,
 			price: req.body.price,
 		};
+		console.log (errores)
 		if (errores.isEmpty()) {
+			console.log ('Entro a crear el producto')
 			db.Products.create(newProduct)
 				.then((createProduct => {
 					const newProductColors = colorsArr.map((color) => {
@@ -193,6 +195,7 @@ const productController = {
 				}))
 			res.redirect("/")
 		} else {
+			console.log ('Tiene errores')
 			let ProductCategory = db.ProductCategory.findAll();
 			let Colors = db.Colors.findAll();
 			Promise.all([ProductCategory, Colors]).then(([ProductCategory, Colors]) => {

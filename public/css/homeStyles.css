@@ -20,6 +20,10 @@ h3 {
 h4 {
   font-size: 45px;
 }
+
+.paragraphDescription{
+  text-align: justify;
+}
 main button {
   border: 2px solid #0093d7;
   padding-top: 4px;
@@ -27,6 +31,13 @@ main button {
   padding-left: 12px;
   padding-right: 12px;
   border-radius: 10px;
+
+  
+}
+
+main button:hover{
+  background-color: rgb(1, 65, 93);
+ 
 }
 #first-section {
   width: 100%;

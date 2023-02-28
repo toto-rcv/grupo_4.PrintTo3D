@@ -37,7 +37,9 @@
         <% for(let i=0; i<productosId.length; i++) { %>
           <section class="contenedor-del-articulo">
             <a href="/productDetails/<%= productosId[i].id %>" >
-              <img src="<%= "/img/" + productosId[i].image  %>" alt="imagen de producto">
+              <div style="display: flex;justify-content: center;align-items: center;">
+                <div style="background-image: url(<%= "/img/products/" + productosId[i].image  %>); width:80%; height:30vw; background-size: contain; background-repeat: no-repeat;background-position: center;  "></div>
+            </div>
             <article>
               <div class="box-precio">
                 <p class="precio"><%= productosId[i].price %>

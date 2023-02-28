@@ -1,10 +1,12 @@
 * {
-    font-family: 'Montserrat', sans-serif;
-    overflow-y: overlay;
+  font-family: 'Montserrat', sans-serif;
+  overflow-y: overlay;
 }
+
 main {
   padding-top: 93.81px;
 }
+
 body {
   scrollbar-gutter: revert;
   margin: 0;
@@ -33,6 +35,7 @@ header {
   gap: 15px;
   align-items: center;
 }
+
 header nav {
   display: none;
   flex-direction: row;
@@ -61,7 +64,7 @@ header nav a:hover {
 }
 
 #user-section button {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 #user-section button i {
@@ -79,12 +82,14 @@ header nav a:hover {
   margin-right: 15px;
   position: relative;
 }
+
 #nav-mobile button i {
   color: #ffffff;
   padding: 10px;
   border: 3px solid #0093d7;
   border-radius: 20px;
 }
+
 #nav-mobile #hamb-menu {
   opacity: 0%;
   pointer-events: none;
@@ -101,22 +106,27 @@ header nav a:hover {
   width: 40vw;
   min-height: 30vh;
 }
-#nav-mobile button:focus + #hamb-menu {
+
+#nav-mobile button:focus+#hamb-menu {
   opacity: 100%;
   pointer-events: auto;
 }
+
 #nav-mobile #hamb-menu ul {
   display: flex;
   flex-direction: column;
   row-gap: 4px;
 }
+
 #nav-mobile #hamb-menu ul li {
   padding: 10px;
   cursor: pointer;
 }
+
 #nav-mobile #hamb-menu ul li:hover {
   background-color: #0093d76c;
 }
+
 footer {
   width: 100%;
   display: flex;
@@ -127,16 +137,19 @@ footer {
   border-top: #0093d7 4px solid;
   padding: 20px;
 }
+
 .footer-list {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
+
 .footer-list h4 {
   font-size: 20px;
-  text-decoration: underline;
-  text-decoration-color: #0093d7;
+  border-bottom: #0093d7 2px solid;
+  border-radius: 10px;
 }
+
 .footer-list ul {
   display: flex;
   flex-direction: column;
@@ -144,15 +157,18 @@ footer {
   justify-content: center;
   align-items: center;
 }
+
 .footer-list ul li {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 5px;
 }
+
 .footer-list ul li a:hover {
   text-decoration: underline;
 }
+
 #footer-img-container {
   width: 100%;
   display: flex;
@@ -160,11 +176,13 @@ footer {
   padding-left: 10px;
   padding-left: 10px;
 }
+
 @media (min-width: 480px) {
   #footer-img-container {
     justify-content: start;
   }
 }
+
 @media (min-width: 640px) {
   footer {
     flex-direction: row;
@@ -172,39 +190,49 @@ footer {
     align-items: flex-start;
     font-size: 12px;
   }
+
   #footer-img-container {
     width: auto;
     padding-left: 2px;
     padding-left: 2px;
   }
- 
-  
+
+
 }
+
 @media (min-width: 769px) {
   #user-section {
     display: flex;
   }
+
   #nav-mobile {
     display: none;
   }
+
   header nav {
     display: flex;
   }
+
   footer {
-    justify-content: center;
+    justify-content: space-evenly;
     column-gap: 50px;
+
   }
+
   .footer-list h4 {
     font-size: 24px;
   }
+
   .footer-list ul li {
     font-size: 14px;
   }
 }
+
 @media (min-width: 1024px) {
   header {
     font-size: 16px;
   }
+
   footer {
     column-gap: 80px;
   }
