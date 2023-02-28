@@ -51,7 +51,10 @@ const userController = {
 					.then(res.redirect("/login"))
 					.catch((error) => res.send(error));
 			} else {
-				res.render("register", { errores: errores.mapped() });
+        db.ProductCategory.findAll()
+        .then(categories => {
+          res.render("register", { errores: errores.mapped(), categories });
+        })
 			}
 		});
 	},
