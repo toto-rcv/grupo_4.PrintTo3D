@@ -46,15 +46,15 @@ window.onload = function () {
 			: "El nombre no puede estar vacio";
 		short_descriptionError.innerText = short_description.value
 			? short_description.value.length <= 20
-				? "El nombre debe ser mayor a 5 caracteres"
+				? "La descripción de ser mayor a 20 caracteres"
 				: ""
-			: "El nombre no puede estar vacio";
+			: "La descripción no puede estar vacia";
 		long_descriptionError.innerText = long_description.value
 			? long_description.value.length <= 20
-				? "El nombre debe ser mayor a 5 caracteres"
+				? "La descripción de ser mayor a 50 caracteres"
 				: ""
-			: "El nombre no puede estar vacio";
-		priceError.innerText = price.value ? "" : "El nombre no puede estar vacio";
+			: "La descripción no puede estar vacia";
+		priceError.innerText = price.value ? "" : "El precio no puede estar vacio";
 
 		if (
 			!!nameError.innerText ||
