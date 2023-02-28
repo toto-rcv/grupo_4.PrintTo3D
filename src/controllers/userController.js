@@ -45,7 +45,7 @@ const userController = {
 					email: req.body.email,
 					password: bcrypt.hashSync(req.body.password, salt),
 					id_level: 2,
-					imagen: req.file ? req.file.filename : "default-image.jpg",
+					image: req.file ? req.file.filename : "default-image.jpg",
 				};
 				db.Users.create(newUser)
 					.then(res.redirect("/login"))
