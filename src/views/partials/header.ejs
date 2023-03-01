@@ -7,6 +7,9 @@
       <% for(let i=0; i<categories.length; i++) {%>
 			  <a href="/category/<%= categories[i].id %>"><%= categories[i].name %></a>
       <% } %>
+      <% if(locals.userLogged) { %>
+        <a href="/products/create">Crear Producto</a>
+      <% }%>  
 		</nav>
 	</section>
   <div id="overlay"></div>
@@ -27,7 +30,7 @@
               <% }%>
             </button>
           </li>
-        <% } else { %>
+          <% } else { %>
           <li>
             <a href="/register">
               <button type="button">Crear cuenta</button></a>
@@ -39,6 +42,9 @@
               Cerrar sesión
             </a>
           </li>
+            <li>
+              <a href="/products/create">Crear Producto</a>
+            </li>
         <% } else { %>
           <li>
             <a href="/login">
