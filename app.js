@@ -4,7 +4,13 @@ const path = require('path')
 const session = require('express-session'); // para session
 const cookies = require("cookie-parser");
 const acceso = require('./src/middlewares/acceso');
+const cors = require('cors');
+var corsOptions = {
+  origin: 'http://localhost:3006',
+  optionsSuccessStatus: 200 // For legacy browser support
+}
 
+app.use(cors(corsOptions));
 /*Middelware*/
 app.use(express.static('public'))
 const methodOverride =  require('method-override'); // Pasar poder usar los métodos PUT y DELETE
@@ -38,9 +44,10 @@ const productRoute = require('./src/routes/productRoute');
 const userRoute = require('./src/routes/userRoute');
 const apiUsersRouter = require('./src/routes/api/users')
 const apiProductsRouter = require('./src/routes/api/products')
+const apiTotalesRouter = require('./src/routes/api/totales')
 
 
-app.use("/", [mainRoute,productRoute,userRoute,apiUsersRouter,apiProductsRouter]);
+app.use("/", [mainRoute,productRoute,userRoute,apiUsersRouter,apiProductsRouter, apiTotalesRouter]);
 
 
 
