@@ -17,7 +17,7 @@ const usersAPIController = {
                 meta: {
                     status : 200,
                     total: user.length,
-                    url: 'api/actors'
+                    url: '/api/users'
                 },
                 data: user
             }

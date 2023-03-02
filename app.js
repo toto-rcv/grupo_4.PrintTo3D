@@ -6,7 +6,7 @@ const cookies = require("cookie-parser");
 const acceso = require('./src/middlewares/acceso');
 const cors = require('cors');
 var corsOptions = {
-  origin: 'http://localhost:3006',
+  origin: 'http://localhost:3001',
   optionsSuccessStatus: 200 // For legacy browser support
 }
 

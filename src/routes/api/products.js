@@ -7,6 +7,7 @@ const productsAPIController = require('../../controllers/api/productsAPIControll
 router.get('/api/products', productsAPIController.list);
 //Detalle del actor
 router.get('/api/product/:id', productsAPIController.detail);
-
+router.get('/api/lastProduct', productsAPIController.lastProduct);
+router.get('/api/categoryProduct', productsAPIController.categoryProduct);
 
 module.exports = router;
