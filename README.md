@@ -1,5 +1,6 @@
 # grupo_4_PrintTo3D
-
+## Proyecto Sprint 8 React
+## https://github.com/martinalb97/react-dashboard.git
 ## Temática del sitio y publico objetivo:
     * Nuestro sitio webs se enfocara en la venta de impresoras 3D e insumos. Esta dirigida a emprendedores o entusiastas que estén ubicados en Argentina.
 
